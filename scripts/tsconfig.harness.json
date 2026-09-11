@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", "module": "esnext", "moduleResolution": "bundler", "jsx": "react-jsx", "strict": false, "skipLibCheck": true, "esModuleInterop": true, "allowImportingTsExtensions": true, "noEmit": true,
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["./*"],
+      "next": ["./scripts/stubs/next/index.ts"],
+      "next/link": ["./scripts/stubs/next/link.tsx"],
+      "next/image": ["./scripts/stubs/next/image.tsx"],
+      "next/font/google": ["./scripts/stubs/next/font-google.ts"],
+      "next/navigation": ["./scripts/stubs/next/navigation.ts"],
+      "next/script": ["./scripts/stubs/next/script.tsx"],
+      "next/server": ["./scripts/stubs/next/server.ts"],
+      "next/og": ["./scripts/stubs/next/og.ts"]
+    }
+  }
+}
