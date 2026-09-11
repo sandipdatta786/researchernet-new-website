@@ -4,8 +4,10 @@
  * Update this file (and LinkedIn, and the deck) together so the facts never disagree.
  */
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://researchernet.com";
-export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.researchernet.com";
+/** Env vars may be present but empty on Vercel; treat blank as unset and strip any trailing slash. */
+const env = (v: string | undefined, fallback: string) => (v && v.trim() ? v.trim().replace(/\/+$/, "") : fallback);
+export const SITE_URL = env(process.env.NEXT_PUBLIC_SITE_URL, "https://researchernet.com");
+export const APP_URL = env(process.env.NEXT_PUBLIC_APP_URL, "https://app.researchernet.com");
 
 export type PricingTier = { id: string; name: string; usd: number | null; period: string; blurb: string; features: string[]; cta: string; highlight?: boolean };
 export type Person = { name: string; role: string; bio: string; initials: string; email?: string };

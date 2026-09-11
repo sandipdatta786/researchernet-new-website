@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.researchernet.com";
+const APP_URL = (process.env.NEXT_PUBLIC_APP_URL || "https://app.researchernet.com").replace(/\/+$/, "");
 
 // Paths that belonged to the application when it was served from the root domain.
 // Keep old bookmarks and shared links working after the marketing site takes over researchernet.com.

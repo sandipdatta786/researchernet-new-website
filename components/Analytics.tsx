@@ -1,7 +1,7 @@
 "use client";
 import Script from "next/script";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
 
 /**
  * Google Tag Manager with Consent Mode v2 defaults (analytics denied until the visitor accepts).

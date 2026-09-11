@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Play } from "./Icons";
 import { track } from "./Analytics";
 
-const ID = process.env.NEXT_PUBLIC_DEMO_VIDEO_ID;
+const ID = process.env.NEXT_PUBLIC_DEMO_VIDEO_ID || "";
 
 /** Click-to-play YouTube embed: no third-party requests until the visitor asks for the video. */
 export function DemoVideo() {
