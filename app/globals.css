@@ -13,7 +13,7 @@
   --line-2: #2e2e33;
   --text: #f4f4f5;
   --text-2: #b4b4bb;
-  --text-3: #7c7c85;
+  --text-3: #9b9ba4;
   --orange: #f97316;
   --orange-2: #fb923c;
   --orange-3: #ea580c;
@@ -182,13 +182,13 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .stats > div { padding: 24px 26px; border-right: 1px solid var(--line); }
 .stats > div:last-child { border-right: 0; }
 .stat-value { font-size: clamp(1.9rem, 3vw, 2.5rem); letter-spacing: -0.03em; font-weight: 600; line-height: 1; font-family: var(--font-mono); }
-.stat-label { margin-top: 8px; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); font-family: var(--font-mono); }
-.stat-note { margin-top: 6px; font-size: 0.78rem; color: var(--text-3); }
+.stat-label { margin-top: 8px; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-2); font-family: var(--font-mono); }
+.stat-note { margin-top: 6px; font-size: 0.8rem; color: var(--text-3); }
 @media (max-width: 860px) { .stats { grid-template-columns: repeat(2, 1fr); } .stats > div:nth-child(2) { border-right: 0; } .stats > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
 
 /* Logo strip */
 .strip { display: flex; flex-wrap: wrap; gap: 12px 36px; align-items: center; justify-content: center; }
-.strip span { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); white-space: nowrap; }
+.strip span { font-family: var(--font-mono); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); white-space: nowrap; font-weight: 500; }
 .strip span::before { content: "◆"; font-size: 7px; margin-right: 12px; color: var(--orange); vertical-align: middle; }
 
 /* Workflow steps */
@@ -369,6 +369,9 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .ribbon__group { display: flex; gap: 12px; padding-right: 12px; }
 .ribbon__item { white-space: nowrap; padding: 9px 16px; font-size: 0.85rem; color: var(--text); gap: 10px; }
 .ribbon__item:hover { border-color: var(--orange-line); background: var(--orange-soft); }
-.ribbon__org { color: var(--text-3); font-size: 0.72rem; letter-spacing: 0.06em; }
+.ribbon__org { color: var(--text-3); font-size: 0.78rem; letter-spacing: 0.06em; }
 @keyframes ribbon { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .ribbon__track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } .ribbon__group:last-child { display: none; } .ribbon { mask-image: none; -webkit-mask-image: none; } }
+
+/* Section labels (small caps) */
+.label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2); }

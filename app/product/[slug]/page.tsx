@@ -71,7 +71,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
       {related.length > 0 && (
         <section className="section--tight section--line">
           <div className="container">
-            <div className="mono dim tiny mb-3" style={{ letterSpacing: "0.14em", textTransform: "uppercase" }}>Related</div>
+            <div className="label mb-3">Related</div>
             <div className="grid grid-2">
               {related.map((r) => (
                 <Link key={r.slug} href={`/product/${r.slug}`} className="card card--link">

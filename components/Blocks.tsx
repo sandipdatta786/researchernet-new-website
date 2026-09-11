@@ -30,7 +30,7 @@ export function StatBand() {
 export function InstitutionStrip({ label = "Researchers on the platform come from" }: { label?: string }) {
   return (
     <div className="center">
-      <div className="mono dim mb-3" style={{ letterSpacing: "0.14em", textTransform: "uppercase", fontSize: 11 }}>{label}</div>
+      <div className="label mb-3">{label}</div>
       <div className="strip">
         {facts.institutions.map((i) => <span key={i.name}>{i.name}</span>)}
         <span>and more</span>
@@ -52,7 +52,7 @@ export function RecognitionStrip({ compact }: { compact?: boolean }) {
   // Rotating ribbon: the list is rendered twice so the loop is seamless; pauses on hover, static under reduced-motion.
   return (
     <div className="center">
-      <div className="mono dim mb-3" style={{ letterSpacing: "0.14em", textTransform: "uppercase", fontSize: 11 }}>Showcased & selected · 2026</div>
+      <div className="label mb-3">Showcased & selected · 2026</div>
       <div className="ribbon" aria-label="Recognition">
         <div className="ribbon__track">
           {[0, 1].map((copy) => (

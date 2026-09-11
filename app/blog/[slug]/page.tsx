@@ -53,7 +53,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       </article>
       <section className="section section--line">
         <div className="container">
-          <div className="mono dim tiny mb-3" style={{ letterSpacing: "0.14em", textTransform: "uppercase" }}>Keep reading</div>
+          <div className="label mb-3">Keep reading</div>
           <div className="grid grid-3">
             {more.map((m) => (
               <Link key={m.slug} href={`/blog/${m.slug}`} className="card card--link post-card">
