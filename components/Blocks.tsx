@@ -40,14 +40,31 @@ export function InstitutionStrip({ label = "Researchers on the platform come fro
 }
 
 export function RecognitionStrip({ compact }: { compact?: boolean }) {
-  const items = facts.recognition.filter((r) => ["eureka", "icpr", "icme", "rise", "tigers", "ideasync", "aisummit"].includes(r.id));
+  const order = ["eureka", "rise", "icpr", "icme", "ideasync", "aisummit", "tigers", "aic"];
+  const items = order.map((id) => facts.recognition.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
+  if (compact) {
+    return (
+      <div className="badge-row">
+        {items.map((r) => <Link key={r.id} href="/recognition" className="pill" title={r.detail}>{r.title}</Link>)}
+      </div>
+    );
+  }
+  // Rotating ribbon: the list is rendered twice so the loop is seamless; pauses on hover, static under reduced-motion.
   return (
-    <div className={compact ? "" : "center"}>
-      {!compact && <div className="mono dim mb-3" style={{ letterSpacing: "0.14em", textTransform: "uppercase", fontSize: 11 }}>Showcased & selected · 2026</div>}
-      <div className="badge-row" style={{ justifyContent: compact ? "flex-start" : "center" }}>
-        {items.map((r) => (
-          <Link key={r.id} href="/recognition" className="pill" title={r.detail}>{r.title}</Link>
-        ))}
+    <div className="center">
+      <div className="mono dim mb-3" style={{ letterSpacing: "0.14em", textTransform: "uppercase", fontSize: 11 }}>Showcased & selected · 2026</div>
+      <div className="ribbon" aria-label="Recognition">
+        <div className="ribbon__track">
+          {[0, 1].map((copy) => (
+            <div className="ribbon__group" key={copy} aria-hidden={copy === 1}>
+              {items.map((r) => (
+                <Link key={`${copy}-${r.id}`} href="/recognition" className="pill ribbon__item" title={r.detail} tabIndex={copy === 1 ? -1 : undefined}>
+                  <span className="dot" style={{ background: "var(--orange)" }} />{r.title}<span className="ribbon__org">{r.short ?? r.org}</span>
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

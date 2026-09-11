@@ -11,7 +11,7 @@ export const APP_URL = env(process.env.NEXT_PUBLIC_APP_URL, "https://app.researc
 
 export type PricingTier = { id: string; name: string; usd: number | null; period: string; blurb: string; features: string[]; cta: string; highlight?: boolean };
 export type Person = { name: string; role: string; bio: string; initials: string; email?: string };
-export type Recognition = { id: string; title: string; org: string; date: string; kind: string; detail: string; url?: string };
+export type Recognition = { id: string; title: string; org: string; short?: string; date: string; kind: string; detail: string; url?: string };
 export type Institution = { name: string; short: string; full?: string };
 
 const pricingTiers: PricingTier[] = [
@@ -181,16 +181,16 @@ export const facts = {
     },
   ] as Person[],
   recognition: [
-    { id: "eureka", title: "Eureka 2026 — Zonal Round", org: "E-Cell, IIT Bombay", date: "September 2026", kind: "Selection", detail: "Selected for the Zonal round of Eureka, Asia's largest business model competition, run by the Entrepreneurship Cell of IIT Bombay.", url: "https://www.ecell.in/eureka/structure" },
-    { id: "rise", title: "RISE Conclave 2026", org: "CSIR-IICB, Kolkata", date: "6–7 September 2026", kind: "Selection", detail: "Research, Industry, Start-up & Entrepreneurship Conclave bringing together researchers, policymakers, industry leaders, venture capitalists and startups around deep-tech commercialisation. ResearcherNet presented a CSIR lab pilot proposal." },
-    { id: "icpr", title: "ICPR 2026", org: "International Association for Pattern Recognition · Lyon, France", date: "August 2026", kind: "Showcase", detail: "Showcased at the 28th International Conference on Pattern Recognition, the flagship event of the IAPR.", url: "https://icpr2026.org/" },
-    { id: "icme", title: "IEEE ICME 2026", org: "IEEE · Bangkok, Thailand", date: "July 2026", kind: "Showcase", detail: "Showcased at the IEEE International Conference on Multimedia and Expo, sponsored by four IEEE societies.", url: "https://2026.ieeeicme.org/" },
-    { id: "ideasync", title: "IdeaSync", org: "IDEAS-TIH, Indian Statistical Institute, Kolkata", date: "2026", kind: "Selection", detail: "Selected for IdeaSync, the industry connect meet organised by the Technology Innovation Hub at ISI Kolkata." },
-    { id: "aisummit", title: "AI Impact Summit Expo 2026", org: "AI Impact Summit", date: "2026", kind: "Exhibitor", detail: "Part of the AI Impact Summit Expo 2026." },
-    { id: "tigers", title: "Tiger's Pitch — Top 30", org: "Zee 24 Ghanta", date: "2026", kind: "Award", detail: "Among the Top 30 startups in Bengal's first startup reality show on television." },
+    { id: "eureka", title: "Eureka 2026 — Zonal Round", org: "E-Cell, IIT Bombay", short: "E-Cell IIT Bombay", date: "September 2026", kind: "Selection", detail: "Selected for the Zonal round of Eureka, Asia's largest business model competition, run by the Entrepreneurship Cell of IIT Bombay.", url: "https://www.ecell.in/eureka/structure" },
+    { id: "rise", title: "RISE Conclave 2026", org: "CSIR-IICB, Kolkata", short: "CSIR-IICB Kolkata", date: "6–7 September 2026", kind: "Selection", detail: "Research, Industry, Start-up & Entrepreneurship Conclave bringing together researchers, policymakers, industry leaders, venture capitalists and startups around deep-tech commercialisation. ResearcherNet presented a CSIR lab pilot proposal." },
+    { id: "icpr", title: "ICPR 2026", org: "International Association for Pattern Recognition · Lyon, France", short: "IAPR · Lyon", date: "August 2026", kind: "Showcase", detail: "Showcased at the 28th International Conference on Pattern Recognition, the flagship event of the IAPR.", url: "https://icpr2026.org/" },
+    { id: "icme", title: "IEEE ICME 2026", org: "IEEE · Bangkok, Thailand", short: "IEEE · Bangkok", date: "July 2026", kind: "Showcase", detail: "Showcased at the IEEE International Conference on Multimedia and Expo, sponsored by four IEEE societies.", url: "https://2026.ieeeicme.org/" },
+    { id: "ideasync", title: "IdeaSync", org: "IDEAS-TIH, Indian Statistical Institute, Kolkata", short: "IDEAS-TIH, ISI Kolkata", date: "2026", kind: "Selection", detail: "Selected for IdeaSync, the industry connect meet organised by the Technology Innovation Hub at ISI Kolkata." },
+    { id: "aisummit", title: "AI Impact Summit Expo 2026", org: "AI Impact Summit", short: "Expo 2026", date: "2026", kind: "Exhibitor", detail: "Part of the AI Impact Summit Expo 2026." },
+    { id: "tigers", title: "Tiger's Pitch — Top 30", org: "Zee 24 Ghanta", short: "Zee 24 Ghanta", date: "2026", kind: "Award", detail: "Among the Top 30 startups in Bengal's first startup reality show on television." },
     { id: "patent", title: "Patent application filed", org: "Indian Patent Office, Kolkata", date: "2 December 2025", kind: "IP", detail: "“A System of AI Driven Research Workflow”, Application No. 202531120470, complete specification, 10 claims." },
     { id: "launch", title: "Platform launch", org: "Jadavpur University, Kolkata", date: "3 December 2025", kind: "Milestone", detail: "ResearcherNet launched at IIC Jadavpur University." },
-    { id: "aic", title: "AIC Techno India — Pre-incubation", org: "Atal Incubation Centre", date: "2026", kind: "Selection", detail: "Selected into the pre-incubation programme." },
+    { id: "aic", title: "AIC Techno India", org: "Atal Incubation Centre · Pre-incubation", short: "Pre-incubation", date: "2026", kind: "Selection", detail: "Selected into the pre-incubation programme at AIC Techno India (Atal Incubation Centre)." },
   ] as Recognition[],
   testimonials: [
     { quote: "The semantic search found critical papers our previous tools missed.", name: "Prof. Sheli Sinha Chaudhuri", role: "Electronics & Tele-communication Engineering, Jadavpur University" },
