@@ -49,6 +49,7 @@ Every pull request gets a Vercel preview URL; previews send `X-Robots-Tag: noind
 | `app/api/lead/route.ts` | Pilot / contact / investor form handler (honeypot, rate limit, Resend email) |
 | `components/` | Nav, footer, page blocks, product mock surfaces, pricing table, forms, analytics |
 | `app/globals.css` | Design tokens and layout primitives |
+| `ci.github-workflow.yml` | GitHub Actions workflow (lint, typecheck, build on every PR). Move it to `.github/workflows/ci.yml` to enable — kept outside that folder only because the first push used a token without the Workflows permission. |
 | `scripts/` | Dev-only verification harness: renders every route to static HTML with Next.js modules stubbed and screenshots them (`npm run verify`). Not part of the build. |
 
 ## Editing content
