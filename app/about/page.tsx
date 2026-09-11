@@ -42,7 +42,7 @@ export default function AboutPage() {
             <div className="prose">
               <p>India produces the third-largest volume of research publications in the world, yet a PhD scholar at a state university cannot afford four separate platform subscriptions, a researcher at a state institution cannot easily discover collaborators at IITs working on adjacent problems, and none of the incumbent tools help anyone find funding or commercialise their work.</p>
               <p>ResearcherNet launched on {facts.launch.display} at {facts.launch.venue} to unify the research lifecycle — discovery, collaboration, writing, publishing, funding and commercialisation — in a single AI-native workspace. On 2 December 2025 the team filed a patent application for the AI-driven research-workflow system underneath it.</p>
-              <p>In 2026 the platform was showcased at IEEE ICME 2026 in Bangkok and ICPR 2026 in Lyon, selected for RISE Conclave 2026, IdeaSync at IDEAS-TIH (ISI Kolkata) and the AI Impact Summit Expo 2026, placed in the Top 30 of Tiger's Pitch, and selected for the Zonal round of Eureka 2026 at IIT Bombay. Today more than 650 researchers use it.</p>
+              <p>In 2026 the platform was showcased at IEEE ICME 2026 in Bangkok and ICPR 2026 in Lyon, selected for RISE Conclave 2026, IdeaSync at IDEAS-TIH (ISI Kolkata) and the AI Impact Summit Expo 2026, placed in the Top 30 of Tiger’s Pitch, and selected for the Zonal round of Eureka 2026 at IIT Bombay. Today more than 650 researchers use it.</p>
               <p>ResearcherNet is a product of {facts.legalName}, a {facts.dpiit} incubated at IIC Jadavpur University, with pre-incubation support from AIC Techno India.</p>
             </div>
           </div>

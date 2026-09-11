@@ -23,7 +23,7 @@ export function DemoVideo() {
       {play ? (
         <iframe src={`https://www.youtube-nocookie.com/embed/${ID}?autoplay=1&rel=0`} title="ResearcherNet product demo" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen />
       ) : (
-        <button className="video__play" onClick={() => { setPlay(true); track("demo_play", { video_id: ID }); }} aria-label="Play product demo">
+        <button className="video__play" onClick={() => { setPlay(true); track("demo_play", { video_id: ID ?? "" }); }} aria-label="Play product demo">
           <i><Play /></i> Watch the two-minute demo
         </button>
       )}

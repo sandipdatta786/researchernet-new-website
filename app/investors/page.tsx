@@ -58,7 +58,7 @@ export default function InvestorsPage() {
                 <p className="lead">India spends over ₹1.2 lakh crore a year on R&D and is the third-largest producer of research papers, yet its research-to-commercialisation conversion rate sits below 3%. Globally, 20,000+ universities, 50,000+ companies with R&D teams and 8M+ active researchers need collaboration infrastructure that ends at market, not at the PDF.</p>
                 <div className="mt-3"><RecognitionStrip compact /></div>
               </div>
-              <p className="tiny dim">This page is for information only and does not constitute an offer or solicitation of securities. Figures are as published in the company's September 2026 materials.</p>
+              <p className="tiny dim">This page is for information only and does not constitute an offer or solicitation of securities. Figures are as published in the company’s September 2026 materials.</p>
             </div>
             <aside className="card sticky">
               <div className="mono accent tiny mb-2">Request the deck</div>

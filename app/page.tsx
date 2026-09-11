@@ -132,7 +132,7 @@ export default function Home() {
       {/* Differentiators */}
       <section className="section section--line">
         <div className="container">
-          <Eyebrow>How we're different</Eyebrow>
+          <Eyebrow>How we’re different</Eyebrow>
           <h2 className="h2 maxw-lg">Competitors solve a step. ResearcherNet solves the pipeline.</h2>
           <div className="grid grid-2 mt-4">
             {differentiators.map((d) => (
@@ -167,7 +167,7 @@ export default function Home() {
       {/* Who for */}
       <section className="section section--line">
         <div className="container">
-          <Eyebrow>Who it's for</Eyebrow>
+          <Eyebrow>Who it’s for</Eyebrow>
           <h2 className="h2">One platform, four kinds of research organisation.</h2>
           <div className="grid grid-4 mt-4">
             {[
