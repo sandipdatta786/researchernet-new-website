@@ -4,6 +4,7 @@ import { productPages, segments } from "@/content/product";
 import { appLogin, appSignup } from "@/lib/seo";
 import { Chevron } from "./Icons";
 import { MobileNav } from "./MobileNav";
+import { NavBehaviour } from "./NavBehaviour";
 import { SignupLink } from "./TrackLink";
 
 export function Brand() {
@@ -20,6 +21,7 @@ export function Nav() {
   const solutions = segments.map((s) => ({ href: `/for/${s.slug}`, title: s.nav, sub: s.audience }));
   return (
     <header className="nav">
+      <NavBehaviour />
       <div className="container">
         <div className="nav__inner">
           <Brand />
