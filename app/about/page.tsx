@@ -52,7 +52,7 @@ export default function AboutPage() {
         <div className="container">
           <Eyebrow>Leadership</Eyebrow>
           <h2 className="h2 mb-4">Founders</h2>
-          <div className="grid grid-3">
+          <div className="grid grid-4">
             {facts.team.map((t) => (
               <div key={t.name} className="card">
                 <div className="avatar avatar--lg mb-3" aria-hidden>{t.initials}</div>
@@ -63,17 +63,21 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-          <h2 className="h3 mt-6 mb-3">Advisory</h2>
-          <div className="grid grid-4">
-            {facts.advisors.map((t) => (
-              <div key={t.name} className="card card--flat">
-                <div className="avatar avatar--lg avatar--muted mb-3" aria-hidden>{t.initials}</div>
-                <h3 className="h4">{t.name}</h3>
-                <div className="accent small mt-1">{t.role}</div>
-                <p className="small mt-2">{t.bio}</p>
+          {facts.advisors.length > 0 && (
+            <>
+              <h2 className="h3 mt-6 mb-3">Advisory</h2>
+              <div className="grid grid-4">
+                {facts.advisors.map((t) => (
+                  <div key={t.name} className="card card--flat">
+                    <div className="avatar avatar--lg avatar--muted mb-3" aria-hidden>{t.initials}</div>
+                    <h3 className="h4">{t.name}</h3>
+                    <div className="accent small mt-1">{t.role}</div>
+                    <p className="small mt-2">{t.bio}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </div>
       </section>
       <section className="section--tight section--line"><div className="container"><InstitutionStrip /></div></section>

@@ -165,15 +165,14 @@ export const facts = {
       bio: "10+ years in academia; researcher with 50+ peer-reviewed publications. Owns platform architecture.",
       initials: "SA",
     },
-  ] as Person[],
-  advisors: [
     {
       name: "Dr. Nandan Gupta",
-      role: "Advisor",
+      role: "Co-Founder",
       bio: "Chairman, Swami Vivekananda Group of Institutes. Co-inventor on the ResearcherNet patent application.",
       initials: "NG",
     },
   ] as Person[],
+  advisors: [] as Person[],
   recognition: [
     { id: "eureka", title: "Eureka 2026 — Zonal Round", org: "E-Cell, IIT Bombay", short: "E-Cell IIT Bombay", date: "September 2026", kind: "Selection", detail: "Selected for the Zonal round of Eureka, Asia's largest business model competition, run by the Entrepreneurship Cell of IIT Bombay.", url: "https://www.ecell.in/eureka/structure" },
     { id: "rise", title: "RISE Conclave 2026", org: "CSIR-IICB, Kolkata", short: "CSIR-IICB Kolkata", date: "6–7 September 2026", kind: "Selection", detail: "Research, Industry, Start-up & Entrepreneurship Conclave bringing together researchers, policymakers, industry leaders, venture capitalists and startups around deep-tech commercialisation. ResearcherNet presented a CSIR lab pilot proposal." },

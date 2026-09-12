@@ -42,7 +42,7 @@ export default function InvestorsPage() {
                 <div className="grid grid-3">
                   <div className="card card--flat"><div className="stat-value">{inv.ask}</div><div className="stat-label">{inv.round} ask</div></div>
                   <div className="card card--flat"><div className="stat-value">{inv.runway}</div><div className="stat-label">Runway</div></div>
-                  <div className="card card--flat"><div className="stat-value">5</div><div className="stat-label">Founders & advisor</div></div>
+                  <div className="card card--flat"><div className="stat-value">4</div><div className="stat-label">Founders</div></div>
                 </div>
                 <h3 className="h3 mt-4 mb-2">Use of funds</h3>
                 <div className="alloc">

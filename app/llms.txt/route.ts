@@ -16,7 +16,7 @@ Patent: "${facts.patent.title}", Indian patent application ${facts.patent.number
 
 Recognition: ${facts.recognition.map((r) => `${r.title} (${r.org}, ${r.date})`).join("; ")}.
 
-Founders: ${facts.team.map((t) => `${t.name} (${t.role})`).join("; ")}. Advisor: ${facts.advisors.map((a) => a.name).join(", ")}.
+Founders: ${facts.team.map((t) => `${t.name} (${t.role})`).join("; ")}.${facts.advisors.length ? ` Advisor: ${facts.advisors.map((a) => a.name).join(", ")}.` : ""}
 
 Pricing: ${facts.pricing.tiers.map((t) => `${t.name} ${t.usd === null ? "custom" : t.usd === 0 ? "free" : `$${t.usd}/month`}`).join(", ")}. Institutional pilots include complimentary first-year access under an MOU.
 
