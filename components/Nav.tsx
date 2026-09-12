@@ -10,8 +10,7 @@ import { SignupLink } from "./TrackLink";
 export function Brand() {
   return (
     <Link href="/" className="brand" aria-label="ResearcherNet home">
-      <Image src="/brand/mark-192.png" alt="" width={26} height={30} priority />
-      <span>Researcher<b>Net</b></span>
+      <Image src="/brand/lockup.png" alt="ResearcherNet" width={2181} height={535} priority />
     </Link>
   );
 }

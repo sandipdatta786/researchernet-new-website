@@ -31,7 +31,7 @@ export default function PressPage() {
           <div className="grid grid-3 mt-3">
             <div className="card card--flat">
               <Eyebrow>Logos</Eyebrow>
-              <div style={{ background: "#000", padding: 16, borderRadius: 10 }}><Image src="/brand/lockup.png" alt="ResearcherNet logo lockup" width={452} height={123} /></div>
+              <div style={{ background: "#000", padding: 16, borderRadius: 10 }}><Image src="/brand/lockup.png" alt="ResearcherNet logo lockup" width={452} height={111} /></div>
               <div className="row mt-2 small"><a className="accent" href="/brand/lockup.png" download>Lockup (PNG)</a><a className="accent" href="/brand/mark-512.png" download>Mark (PNG)</a></div>
               <p className="tiny dim mt-2">Use on dark backgrounds. Do not recolour, rotate or add effects. Orange #F97316.</p>
             </div>
