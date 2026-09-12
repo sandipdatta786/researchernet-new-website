@@ -91,6 +91,14 @@ export default async function ComparePage({ params }: { params: Promise<{ slug: 
       </section>
       <section className="section--tight">
         <div className="container">
+          <div className="card">
+            <div className="mono accent tiny mb-2">Related</div>
+            <p className="small">Evaluating this for a department or a campus? See <Link href="/for/institutions" className="accent">ResearcherNet for universities and institutions</Link>, or the <Link href="/pilot/provenance" className="accent">90-day provenance pilot</Link> for AI-assisted research.</p>
+          </div>
+        </div>
+      </section>
+      <section className="section--tight">
+        <div className="container">
           <div className="badge-row">
             {comparePages.filter((x) => x.slug !== c.slug).map((x) => <Link key={x.slug} href={`/compare/${x.slug}`} className="pill">vs {x.competitor}</Link>)}
           </div>

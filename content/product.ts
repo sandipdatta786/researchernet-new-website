@@ -1,4 +1,5 @@
 import type { FaqItem } from "./types";
+import { facts } from "./facts";
 
 export type Engine = {
   id: string;
@@ -11,7 +12,7 @@ export type Engine = {
 
 /** The six engines — as published in the Aug-2026 deck and RISE one-pager. */
 export const engines: Engine[] = [
-  { id: "intelligence", name: "AI Research Intelligence", short: "Semantic search across 300M+ papers, Chat with Paper, research-gap analysis and systematic-review support.", icon: "search", live: ["Semantic paper search", "Chat with Paper", "Research gap analysis"], href: "/product/discover" },
+  { id: "intelligence", name: "AI Research Intelligence", short: `Semantic search across ${facts.corpus} papers, Chat with Paper, research-gap analysis and systematic-review support.`, icon: "search", live: ["Semantic paper search", "Chat with Paper", "Research gap analysis"], href: "/product/discover" },
   { id: "matchmaking", name: "Smart Matchmaking", short: "Collaborator recommendations ranked on a research knowledge graph — by expertise, co-citation and project fit.", icon: "users", live: ["Collaborator matching", "Expertise & co-citation signals", "Interdisciplinary suggestions"], href: "/product/collaborate" },
   { id: "collab", name: "Real-Time Collaboration", short: "Collaborative LaTeX with version control, chat, HD video meetings and lab spaces for every project.", icon: "edit", live: ["Collaborative LaTeX editor", "HD video meetings", "Lab spaces & projects"], href: "/product/write" },
   { id: "funding", name: "Funding Engine", short: "Grant alerts matched to your profile, commercialisation readiness and industry connections.", icon: "coins", live: ["Grant alerts", "Commercialisation readiness", "Industry connections"], href: "/product/fund-and-commercialise" },
@@ -27,8 +28,11 @@ export type ProductPage = {
   titleAccent: string;
   description: string; // meta
   lead: string;
-  sections: { heading: string; body: string; bullets?: string[] }[];
+  sections: { heading: string; body: string; bullets?: string[]; collapsed?: boolean }[];
   mock: "search" | "match" | "latex" | "funding" | "tech" | "security" | "roadmap";
+  screenshot?: { file: string; alt: string };
+  metaTitle?: string; // overrides the hero-derived <title> where a search-first phrasing is wanted
+  crossLinks?: { label: string; href: string }[];
   faqs: FaqItem[];
   cta: { label: string; href: string };
   related: string[]; // slugs
@@ -41,16 +45,17 @@ export const productPages: ProductPage[] = [
     eyebrow: "AI Research Intelligence",
     title: "Literature review in minutes,",
     titleAccent: "not months.",
-    description: "Search 300M+ papers semantically, chat with any paper and surface research gaps in minutes, not months. Free for researchers.",
-    lead: "The average literature review takes six to twelve months. ResearcherNet's research intelligence engine reads the field for you — semantically, across 300M+ indexed papers — and hands back structured summaries, gaps and the journals you should target.",
+    description: `Search ${facts.corpus} papers semantically, chat with any paper and surface research gaps in minutes, not months. Free for researchers.`,
+    lead: `The average literature review takes six to twelve months. ResearcherNet's research intelligence engine reads the field for you — semantically, across ${facts.corpus} indexed papers — and hands back structured summaries, gaps and the journals you should target.`,
     sections: [
-      { heading: "Semantic search that understands the question", body: "Describe the problem the way you would to a colleague. The engine retrieves literature, datasets and related work by meaning, not keyword overlap, so the foundational and adjacent papers keyword databases miss come back first." , bullets: ["300M+ papers indexed", "Context-first retrieval for literature, datasets and citations", "Save results straight into a project"] },
+      { heading: "Semantic search that understands the question", body: "Describe the problem the way you would to a colleague. The engine retrieves literature, datasets and related work by meaning, not keyword overlap, so the foundational and adjacent papers keyword databases miss come back first." , bullets: [`${facts.corpus} papers indexed`, "Context-first retrieval for literature, datasets and citations", "Save results straight into a project"] },
       { heading: "Chat with Paper", body: "Upload or open any paper and ask it questions — method, assumptions, limitations, how it relates to your draft. Every answer is grounded in the document you are reading, with structured abstracts, key findings and methodological tags generated in seconds.", bullets: ["Structured summaries in ≤5 seconds per document", "Methodology and findings extraction", "Multi-LLM routing picks the right model for the task"] },
       { heading: "Research gap analysis & systematic reviews", body: "Map what has been studied, where the evidence is thin and which questions remain open. Run structured reviews with the same workspace your co-authors use, then move directly into writing.", bullets: ["Gap detection across disciplines", "Systematic-review workflows", "Publication navigator: journal and conference suggestions matched to your manuscript"] },
     ],
     mock: "search",
+    screenshot: { file: "discover.png", alt: "Semantic paper search in ResearcherNet: a natural-language research question with ranked results, research-gap labels and Chat with Paper actions." },
     faqs: [
-      { q: "How many papers does ResearcherNet search?", a: "The semantic search corpus covers 300M+ papers across all fields of science, updated continuously." },
+      { q: "How many papers does ResearcherNet search?", a: `The semantic search corpus covers ${facts.corpus} papers across all fields of science, updated continuously.` },
       { q: "Is the AI grounded in the papers, or does it guess?", a: "Answers in Chat with Paper are generated from the document you are reading. Summaries carry the source so you can verify every claim before relying on it." },
       { q: "Can I use it for a systematic review?", a: "Yes. Structured review workflows, gap analysis and export live in the same workspace as your collaborators and your LaTeX draft." },
     ],
@@ -71,6 +76,7 @@ export const productPages: ProductPage[] = [
       { heading: "Lab spaces, chat and HD meetings", body: "Spin up a focused working group with shared projects, notes, milestones and discussion lanes. Meet in HD video with recording and screen sharing without leaving the workspace.", bullets: ["Private lab spaces for institutional teams", "Real-time chat and threads", "HD video meetings with recording"] },
     ],
     mock: "match",
+    screenshot: { file: "match.png", alt: "AI collaborator matching in ResearcherNet: suggested co-authors ranked on the research knowledge graph, with expertise and co-citation signals." },
     faqs: [
       { q: "How does ResearcherNet suggest collaborators?", a: "It builds a knowledge graph of publications, researchers and expertise domains and ranks candidates by the semantic similarity of their work, adjusted for graph centrality. The system is described in Indian patent application 202531120470." },
       { q: "Can I collaborate with people at other institutions?", a: "Yes — cross-institution and cross-border collaboration is the point. Researchers at IIT Kharagpur, Jadavpur University, ISI Kolkata, SVIST and the Harare Institute of Technology already work together on the platform." },
@@ -93,6 +99,7 @@ export const productPages: ProductPage[] = [
       { heading: "From draft to the right venue", body: "The publication navigator reads your manuscript and suggests journals and conferences matched to its content and impact goals, with deadlines to track.", bullets: ["Journal and conference suggestions", "Research sessions to organise materials", "Milestones and task boards per project"] },
     ],
     mock: "latex",
+    screenshot: { file: "write.png", alt: "The collaborative LaTeX editor in ResearcherNet: two researchers editing a manuscript side by side with version history." },
     faqs: [
       { q: "Does ResearcherNet replace Overleaf?", a: "It includes a real-time collaborative LaTeX editor with version control, so teams can write together without a separate editor. You can also keep using Overleaf alongside ResearcherNet." },
       { q: "Can co-authors who use Word participate?", a: "Yes. Bi-directional LaTeX ↔ Word conversion lets each author work in the format they prefer." },
@@ -115,6 +122,7 @@ export const productPages: ProductPage[] = [
       { heading: "Impact you can report", body: "Research outputs are mapped to UN Sustainable Development Goal facets so institutions and funders can report societal impact alongside citations, with threshold alerts when a project's impact profile changes.", bullets: ["UN SDG mapping", "Institutional dashboards", "Outcome reports for funders"] },
     ],
     mock: "funding",
+    screenshot: { file: "fund.png", alt: "The funding engine in ResearcherNet: grant calls matched to a researcher profile with deadlines and commercialisation-readiness signals." },
     faqs: [
       { q: "Which funding sources does ResearcherNet track?", a: "Indian agency calls (ANRF/DST, DBT, ICMR and state programmes) and international opportunities, matched to your profile. Coverage expands continuously; tell us what you need." },
       { q: "Can industry partners find our lab's technologies?", a: "Yes. Institutions can list technologies and expertise for discovery; enquiries route to the lab's business-development contact." },
@@ -148,6 +156,8 @@ export const productPages: ProductPage[] = [
   },
   {
     slug: "security",
+    crossLinks: [{ label: "See the 90-day provenance pilot", href: "/pilot/provenance" }],
+    metaTitle: "Security and Privacy for Unpublished Research — DPDP and GDPR",
     nav: "Security & privacy",
     eyebrow: "Integrity & Privacy",
     title: "Your unpublished work",
@@ -158,6 +168,7 @@ export const productPages: ProductPage[] = [
       { heading: "Data protection", body: "All data is encrypted at rest and in transit. Access is role-based at project, lab and institution level, with audit trails. Optional end-to-end encryption is available for sensitive workspaces.", bullets: ["Encryption at rest and in transit", "Granular role-based access control", "Audit logs"] },
       { heading: "AI you can put a policy around", body: "Documents are processed to provide the features you use. Unpublished manuscripts are never used to train public models. Institutions can substitute models or run constrained deployments to satisfy internal AI policies.", bullets: ["No training of public models on your unpublished work", "Model substitution for institutional policies", "Aggregated, de-identified usage only for improving recommendations"] },
       { heading: "Regulatory alignment and deployment", body: "The platform is designed in line with India's Digital Personal Data Protection Act 2023 and the GDPR, with a grievance and data-protection contact. On-premise deployment is available for institutional requirements. SOC 2 preparation and SSO are on the trust roadmap.", bullets: ["DPDP Act 2023 and GDPR aligned", "On-premise deployment option", "Trust roadmap: SSO, SOC 2 preparation"] },
+      { heading: "Provenance for AI-assisted work", body: "Journals, funders and patent examiners are starting to ask what a model contributed to a result. The 90-day provenance pilot builds that record for one department: a contribution and model ledger, a verification step, and an exportable provenance report.", bullets: ["Contribution and model ledger", "Verification before a result is accepted", "Exportable provenance report"] },
     ],
     mock: "security",
     faqs: [
@@ -177,10 +188,13 @@ export const productPages: ProductPage[] = [
     description: "An honest view of ResearcherNet's product roadmap — which capabilities are live today and which are in development, without dates we can't keep.",
     lead: "We publish only what is live as a feature, and everything else here. Roadmap items are in development; we do not promise dates.",
     sections: [
-      { heading: "Live today", body: "Semantic search across 300M+ papers · Chat with Paper · research gap analysis and systematic-review support · publication navigator · collaborator matching on the research knowledge graph · profiles with Google Scholar / ORCID / ResearchGate import · feed, chat and HD video meetings · lab spaces and projects · collaborative LaTeX editor with version control · LaTeX ↔ Word conversion · multi-LLM orchestration · grant alerts · commercialisation readiness and industry connections · SDG impact mapping · encryption, role-based access and on-premise option." },
-      { heading: "In development — integrity & analytics", body: "Multilingual plagiarism and AI-content detection · institutional research-output dashboards · no-code statistical analysis · scientific visualisation suite." },
-      { heading: "In development — advanced AI engines", body: "Autonomous hypothesis generator · outcome prediction (feasibility and expected impact of a proposed project) · interdisciplinary discovery engine · scientific investment intelligence for funders." },
-      { heading: "In development — management & platform", body: "End-to-end conference manager (website builder, abstract management, payments) · smart deadline tracker · dataset marketplace · SSO and SOC 2 preparation · LMS and HRIS connectors · multilingual interface." },
+      { heading: "Live today", body: `Semantic search across ${facts.corpus} papers · Chat with Paper · research gap analysis and systematic-review support · publication navigator · collaborator matching on the research knowledge graph · profiles with Google Scholar / ORCID / ResearchGate import · feed, chat and HD video meetings · lab spaces and projects · collaborative LaTeX editor with version control · LaTeX ↔ Word conversion · multi-LLM orchestration · grant alerts · commercialisation readiness and industry connections · SDG impact mapping · encryption, role-based access and on-premise option.` },
+      { heading: "Research Ledger — provenance and verification", body: "Contribution and model ledger on every project · verification step before a result is marked accepted · provenance export for journals, funders and IP cells · shaped with pilot departments." },
+      { heading: "In development — SSO and SOC 2 preparation", body: "SSO and SOC 2 preparation." },
+      { heading: "In development — integrity & analytics", body: "Multilingual plagiarism and AI-content detection · institutional research-output dashboards." },
+      { heading: "In development — advanced AI engines", body: "Autonomous hypothesis generator · outcome prediction (feasibility and expected impact of a proposed project) · interdisciplinary discovery engine." },
+      { heading: "In development — management & platform", body: "Smart deadline tracker." },
+      { heading: "Longer term", collapsed: true, body: "End-to-end conference manager (website builder, abstract management, payments) · dataset marketplace · LMS and HRIS connectors · multilingual interface · scientific investment intelligence for funders · no-code statistical analysis · scientific visualisation suite." },
     ],
     mock: "roadmap",
     faqs: [
@@ -217,7 +231,7 @@ export const segments: Segment[] = [
     eyebrow: "For researchers",
     title: "Five tools' worth of research,",
     titleAccent: "one free workspace.",
-    description: "One free AI research workspace: literature AI, collaborator matching, LaTeX co-editing and grant alerts. Join 650+ researchers.",
+    description: `One free AI research workspace: literature AI, collaborator matching, LaTeX co-editing and grant alerts. Join ${facts.researchersRegistered} researchers.`,
     lead: "A PhD scholar at a state university cannot afford four subscriptions. A faculty member at an IIT cannot afford four browser tabs. ResearcherNet puts discovery, collaborators, writing and funding in one place — free for individuals.",
     pains: [
       { title: "Literature review eats the first year", body: "Six to twelve months reading, with the important paper still missed." },
@@ -225,7 +239,7 @@ export const segments: Segment[] = [
       { title: "Tools don't talk to each other", body: "Overleaf ≠ ResearchGate ≠ Elicit ≠ your grant spreadsheet." },
     ],
     gets: [
-      { title: "Semantic search and Chat with Paper", body: "300M+ papers, structured summaries, research-gap analysis." },
+      { title: "Semantic search and Chat with Paper", body: `${facts.corpus} papers, structured summaries, research-gap analysis.` },
       { title: "Collaborators found for you", body: "Ranked suggestions across institutions, on a research knowledge graph." },
       { title: "Write together, natively", body: "Collaborative LaTeX with version control and LaTeX ↔ Word conversion." },
       { title: "Funding that finds you", body: "Grant alerts matched to your profile, with deadlines." },
@@ -260,9 +274,9 @@ export const segments: Segment[] = [
     ],
     proof: "Pilot institutions receive complimentary first-year access, a trained campus ambassador and a joint outcomes review at month six.",
     cta: { label: "Book an institutional pilot", href: "/institutional-pilot" },
-    secondary: { label: "Download the MOU outline", href: "/institutional-pilot#mou" },
+    secondary: { label: "Download the MOU outline (PDF)", href: "/docs/ResearcherNet_MOU_Outline.pdf" },
     faqs: [
-      { q: "What does a pilot cost?", a: "Nothing. Pilot institutions receive complimentary access for one year under an MOU, with the option to continue on a paid institutional licence." },
+      { q: "What does a pilot cost?", a: "The institution-wide MOU year is complimentary: access for every researcher, a trained campus ambassador and a joint outcomes review at month six. A department that wants the 90-day provenance pilot pays a fixed departmental fee, credited in full against the campus licence if the institution proceeds at the month-six review." },
       { q: "Can we deploy on-premise?", a: "Yes. On-premise deployment and model substitution are available for institutions with data-residency or AI-policy requirements." },
       { q: "Do you support SSO?", a: "SSO is on the trust roadmap; institutional email verification is available today." },
     ],
@@ -323,8 +337,8 @@ export const segments: Segment[] = [
 ];
 
 export const generalFaqs: FaqItem[] = [
-  { q: "What is ResearcherNet?", a: "ResearcherNet is an AI-powered research collaboration and research-to-market platform built in Kolkata, India, by AIMTECH Dynamics Private Limited. It combines semantic literature discovery, AI collaborator matching, real-time collaborative writing, funding discovery and commercialisation tools in one workspace. It launched on 3 December 2025 at Jadavpur University and is used by 650+ researchers." },
-  { q: "Is ResearcherNet free?", a: "Yes. Individual researchers can use ResearcherNet free. Professional ($29/month) and Team ($99/month) plans add advanced AI capacity and team features; institutions can license the platform campus-wide, and pilot institutions receive complimentary first-year access under an MOU." },
+  { q: "What is ResearcherNet?", a: `ResearcherNet is an AI-powered research collaboration and research-to-market platform built in Kolkata, India, by AIMTECH Dynamics Private Limited. It combines semantic literature discovery, AI collaborator matching, real-time collaborative writing, funding discovery and commercialisation tools in one workspace. It launched on 3 December 2025 at Jadavpur University and is used by ${facts.researchersRegistered} researchers.` },
+  { q: "Is ResearcherNet free?", a: "Yes. Individual researchers can use ResearcherNet free. Professional and Team plans are coming soon; institutions can license the platform campus-wide, and pilot institutions receive complimentary first-year access under an MOU." },
   { q: "Which institutions use ResearcherNet?", a: "Researchers from IIT Kharagpur, Jadavpur University, the Indian Statistical Institute Kolkata, Swami Vivekananda Institute of Science and Technology and the Harare Institute of Technology, among others, are active on the platform." },
   { q: "Does ResearcherNet have a patent?", a: "ResearcherNet is the commercial embodiment of Indian patent application No. 202531120470, “A System of AI Driven Research Workflow”, filed on 2 December 2025 with complete specification (10 claims), currently under process. The collaborator-recommendation, semantic-synthesis and impact-alignment modules described in the claims are live on the platform." },
   { q: "How does ResearcherNet find collaborators?", a: "It builds a research knowledge graph from publications, expertise domains and projects, then ranks potential collaborators by the semantic similarity of their work adjusted for their position in the graph — surfacing people you would not find through manual networking." },
@@ -338,7 +352,7 @@ export const generalFaqs: FaqItem[] = [
 ];
 
 export const pilotFaqs: FaqItem[] = [
-  { q: "What does the pilot cost the institution?", a: "Nothing. Complimentary access for one year under our institutional MOU; no financial commitment is created." },
+  { q: "What does the pilot cost the institution?", a: "The institution-wide MOU year is complimentary: access for every researcher, a trained campus ambassador and a joint outcomes review at month six. A department that wants the 90-day provenance pilot pays a fixed departmental fee, credited in full against the campus licence if the institution proceeds at the month-six review." },
   { q: "How many users can join?", a: "Institution-wide by default — faculty, research scholars, post-docs and registered students — verified by institutional email." },
   { q: "What is a campus ambassador?", a: "One faculty member nominated by the institution, trained and certified by ResearcherNet, who supports adoption on campus and is the day-to-day contact." },
   { q: "What happens after the pilot year?", a: "A joint review of adoption and outcomes, then the option of a continuing institutional licence. There is no automatic conversion." },

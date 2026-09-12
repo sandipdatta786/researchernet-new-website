@@ -6,6 +6,7 @@ import { pageMetadata, softwareJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero, EngineGrid, Workflow, CtaBand, Eyebrow, Faq } from "@/components/Blocks";
 import { MatchMock } from "@/components/Mocks";
+import { DemoVideo } from "@/components/Video";
 import { ArrowRight } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
@@ -21,6 +22,9 @@ export default function ProductPage() {
     <>
       <JsonLd data={[softwareJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Product", path: "/product" }])]} />
       <PageHero eyebrow="Product overview" title="Six engines." accent="One research graph." lead={`Everything on this page is live in production. ${facts.brand} is one workspace built on one knowledge graph, so discovery, collaborators, writing, funding and commercialisation reinforce each other instead of living in separate tabs.`} />
+      <section className="section--tight">
+        <div className="container"><div className="maxw-md"><DemoVideo /></div></div>
+      </section>
       <section className="section--tight">
         <div className="container"><EngineGrid /></div>
       </section>

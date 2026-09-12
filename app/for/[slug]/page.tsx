@@ -8,8 +8,9 @@ import { Breadcrumb, Eyebrow, Faq, CtaBand, InstitutionStrip, RecognitionStrip }
 import { SignupLink } from "@/components/TrackLink";
 import { ArrowRight } from "@/components/Icons";
 
+/** /for/institutions has its own route file; exclude it so the two do not collide. */
 export function generateStaticParams() {
-  return segments.map((s) => ({ slug: s.slug }));
+  return segments.filter((s) => s.slug !== "institutions").map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

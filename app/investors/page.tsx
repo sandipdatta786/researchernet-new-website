@@ -8,8 +8,8 @@ import { LeadForm } from "@/components/Forms";
 import { Check } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Investors — Seed Round Open",
-  description: "Patent-pending AI research infrastructure with 650+ researchers, institutional pilots and IEEE/IAPR showcases. Seed round open — request the deck.",
+  title: "Investors",
+  description: `Patent-pending AI research infrastructure with ${facts.researchersRegistered} researchers, institutional pilots and IEEE/IAPR showcases. Seed round open — request the deck.`,
   path: "/investors",
 });
 
@@ -18,7 +18,7 @@ export default function InvestorsPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Investors", path: "/investors" }])} />
-      <PageHero eyebrow={`${inv.round} round · ${inv.status}`} title="The infrastructure layer for" accent="research-to-market." lead="ResearcherNet is building the rails that convert research into collaborations, funding and companies — starting with India's 1,500+ universities and 40 lakh researchers, validated on global stages." />
+      <PageHero eyebrow={`${inv.round} round · ${inv.status}`} title="The infrastructure layer for" accent="research-to-market." lead="ResearcherNet is building the rails that convert research into collaborations, funding and companies — starting with India's 1,100+ universities and 45,000+ colleges, and about 4 lakh full-time-equivalent researchers, validated on global stages." />
       <section className="section--tight"><div className="container"><StatBand /></div></section>
       <section className="section section--line">
         <div className="container">
@@ -42,7 +42,7 @@ export default function InvestorsPage() {
                 <div className="grid grid-3">
                   <div className="card card--flat"><div className="stat-value">{inv.ask}</div><div className="stat-label">{inv.round} ask</div></div>
                   <div className="card card--flat"><div className="stat-value">{inv.runway}</div><div className="stat-label">Runway</div></div>
-                  <div className="card card--flat"><div className="stat-value">4</div><div className="stat-label">Founders</div></div>
+                  <div className="card card--flat"><div className="stat-value">{facts.founders}</div><div className="stat-label">Founders</div></div>
                 </div>
                 <h3 className="h3 mt-4 mb-2">Use of funds</h3>
                 <div className="alloc">
@@ -55,7 +55,8 @@ export default function InvestorsPage() {
               </div>
               <div>
                 <Eyebrow>Market</Eyebrow>
-                <p className="lead">India spends over ₹1.2 lakh crore a year on R&D and is the third-largest producer of research papers, yet its research-to-commercialisation conversion rate sits below 3%. Globally, 20,000+ universities, 50,000+ companies with R&D teams and 8M+ active researchers need collaboration infrastructure that ends at market, not at the PDF.</p>
+                <p className="lead">India spends over ₹1.2 lakh crore a year on R&D and is the third-largest producer of research papers. Globally, 20,000+ universities, 50,000+ companies with R&D teams and 8M+ active researchers need collaboration infrastructure that ends at market, not at the PDF.</p>
+                <p className="tiny dim mt-2">Sources: DST Research &amp; Development Statistics; UGC list of universities; NSF Science &amp; Engineering Indicators. Figures as published September 2026.</p>
                 <div className="mt-3"><RecognitionStrip compact /></div>
               </div>
               <p className="tiny dim">This page is for information only and does not constitute an offer or solicitation of securities. Figures are as published in the company’s September 2026 materials.</p>

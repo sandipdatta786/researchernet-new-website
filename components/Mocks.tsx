@@ -194,7 +194,7 @@ export function RoadmapMock() {
       <div className="mock__body">
         {[
           ["Collaborator matching", "live"], ["Chat with Paper", "live"], ["Collaborative LaTeX", "live"], ["Grant alerts", "live"],
-          ["Plagiarism & AI-content detection", "in development"], ["Hypothesis generator", "in development"], ["Conference manager", "in development"],
+          ["Research Ledger", "in development"], ["Plagiarism & AI-content detection", "in development"], ["Hypothesis generator", "in development"],
         ].map(([t, s]) => (
           <div key={t} className="mock__row"><b>{t}</b><span className={`mock__tag ${s === "live" ? "mock__tag--hot" : ""}`}>{s}</span></div>
         ))}

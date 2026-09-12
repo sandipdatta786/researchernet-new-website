@@ -21,11 +21,11 @@ export default function PressPage() {
           <div className="grid grid-2">
             <div className="card">
               <Eyebrow>Boilerplate · short</Eyebrow>
-              <p className="muted">ResearcherNet is an AI-powered research collaboration and research-to-market platform built in Kolkata, India. Launched in December 2025 at Jadavpur University, it unifies literature discovery, collaborator matching, collaborative writing, funding discovery and commercialisation in one workspace, and is used by 650+ researchers. Its core system is patent-pending (IN {facts.patent.number}).</p>
+              <p className="muted">ResearcherNet is an AI-powered research collaboration and research-to-market platform built in Kolkata, India. Launched in December 2025 at Jadavpur University, it unifies literature discovery, collaborator matching, collaborative writing, funding discovery and commercialisation in one workspace, and is used by {facts.researchersRegistered} researchers. Its core system is patent-pending ({facts.patentNumber}).</p>
             </div>
             <div className="card">
               <Eyebrow>Boilerplate · long</Eyebrow>
-              <p className="muted small">ResearcherNet, a product of {facts.legalName}, is an AI-powered research collaboration and research-to-market platform headquartered at the IIC, Jadavpur University, Kolkata. Launched on {facts.launch.display}, the platform gives researchers one workspace for semantic literature discovery across 300M+ papers, AI collaborator matching on a research knowledge graph, real-time collaborative LaTeX writing, funding discovery and commercialisation, with UN SDG impact mapping for institutions. More than 650 researchers from institutions including IIT Kharagpur, Jadavpur University, ISI Kolkata, SVIST and the Harare Institute of Technology use the platform. The underlying system is the subject of Indian patent application {facts.patent.number}, filed {facts.patent.filedDisplay}. ResearcherNet was showcased at IEEE ICME 2026 (Bangkok) and ICPR 2026 (Lyon), selected for RISE Conclave 2026, IdeaSync (IDEAS-TIH, ISI Kolkata) and the AI Impact Summit Expo 2026, placed in the Top 30 of Tiger’s Pitch, and selected for the Zonal round of Eureka 2026, E-Cell IIT Bombay.</p>
+              <p className="muted small">ResearcherNet, a product of {facts.legalName}, is an AI-powered research collaboration and research-to-market platform headquartered at the IIC, Jadavpur University, Kolkata. Launched on {facts.launch.display}, the platform gives researchers one workspace for semantic literature discovery across {facts.corpus} papers, AI collaborator matching on a research knowledge graph, real-time collaborative LaTeX writing, funding discovery and commercialisation, with UN SDG impact mapping for institutions. More than 650 researchers from institutions including IIT Kharagpur, Jadavpur University, ISI Kolkata, SVIST and the Harare Institute of Technology use the platform. The underlying system is the subject of Indian patent application {facts.patent.number}, filed {facts.patent.filedDisplay}. ResearcherNet was showcased at IEEE ICME 2026 (Bangkok) and ICPR 2026 (Lyon), selected for RISE Conclave 2026, IdeaSync (IDEAS-TIH, ISI Kolkata) and the AI Impact Summit Expo 2026, placed in the Top 30 of Tiger’s Pitch, and selected for the Zonal round of Eureka 2026, E-Cell IIT Bombay.</p>
             </div>
           </div>
           <div className="grid grid-3 mt-3">
@@ -44,7 +44,7 @@ export default function PressPage() {
               <ul className="list-check small">
                 <li><span>·</span><span>Launch: {facts.launch.display}, {facts.launch.venue}</span></li>
                 <li><span>·</span><span>Researchers: {facts.stats.researchers.value}</span></li>
-                <li><span>·</span><span>Patent: IN {facts.patent.number}, filed {facts.patent.filedDisplay}, {facts.patent.claims} claims</span></li>
+                <li><span>·</span><span>Patent: {facts.patentNumber}, filed {facts.patent.filedDisplay}, {facts.patent.claims} claims</span></li>
                 <li><span>·</span><span>Entity: {facts.legalName}, CIN {facts.cin}</span></li>
                 <li><span>·</span><span>HQ: {facts.hq.line1}, {facts.hq.city}</span></li>
               </ul>

@@ -14,14 +14,15 @@ import { ArrowRight, Sparkle, Globe, Award, Network } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
   title: "ResearcherNet — AI Research Collaboration, From Paper to Product",
-  description: "Discover literature, find collaborators, write together, fund and commercialise — in one AI workspace. 650+ researchers. Patent-pending. Start free.",
+  titleAbsolute: true,
+  description: `Discover literature, find collaborators, write together, fund and commercialise — in one AI workspace. ${facts.researchersRegistered} researchers. Patent-pending. Start free.`,
   path: "/",
 });
 
 const problems = [
-  { n: "6+ months", t: "to find the right collaborator", d: "Researchers work in institutional silos; the co-author who changes the paper is two departments away." },
-  { n: "6–12 months", t: "for a literature review", d: "Critical gaps stay hidden and effort is duplicated across labs." },
-  { n: "90%", t: "of research never commercialises", d: "No clear path from lab bench to market; billions in potential innovation stays locked." },
+  { n: "6+ months", t: "to find the right collaborator", d: "Researchers work in institutional silos; the co-author who changes the paper is two departments away.", src: 1, cite: "[source 1]" },
+  { n: "6–12 months", t: "for a literature review", d: "Critical gaps stay hidden and effort is duplicated across labs.", src: 2, cite: "[source 2]" },
+  { n: "90%", t: "of research never commercialises", d: "No clear path from lab bench to market; billions in potential innovation stays locked.", src: 3, cite: "[source 3]" },
 ];
 
 const differentiators = [
@@ -32,7 +33,7 @@ const differentiators = [
 ];
 
 export default function Home() {
-  const posts = blogPosts.slice(0, 3);
+  const posts = blogPosts.filter((p) => !p.draft).slice(0, 3);
   return (
     <>
       <JsonLd data={softwareJsonLd()} />
@@ -77,12 +78,13 @@ export default function Home() {
           <div className="grid grid-3 mt-4">
             {problems.map((p) => (
               <div key={p.t} className="card card--flat">
-                <div className="stat-value accent">{p.n}</div>
+                <div className="stat-value accent">{p.n}<sup className="cite"><a href={`#src-${p.src}`} aria-label={`Source ${p.src}`}>{p.src}</a></sup></div>
                 <h3 className="h4 mt-2">{p.t}</h3>
                 <p className="small mt-1">{p.d}</p>
               </div>
             ))}
           </div>
+          <p className="tiny dim mt-3">Sources: {problems.map((p, i) => (<span key={p.src} id={`src-${p.src}`}>{i > 0 ? " · " : ""}{p.src}. {p.cite}</span>))}</p>
         </div>
       </section>
 
@@ -119,7 +121,7 @@ export default function Home() {
               <h2 className="h2">Live platform, <span className="serif accent">not a deck.</span></h2>
               <p className="lead mt-2">Launched on {facts.launch.display} at {facts.launch.venue}. Every capability shown on this site is in production today; everything else lives on the <Link href="/product/roadmap" className="accent">roadmap</Link>.</p>
               <ul className="list-check mt-3">
-                {["Semantic search across 300M+ papers with Chat with Paper", "Collaborator matching on a research knowledge graph", "Collaborative LaTeX with version control and LaTeX ↔ Word", "Grant alerts, commercialisation readiness and SDG mapping"].map((l) => (
+                {[`Semantic search across ${facts.corpus} papers with Chat with Paper`, "Collaborator matching on a research knowledge graph", "Collaborative LaTeX with version control and LaTeX ↔ Word", "Grant alerts, commercialisation readiness and SDG mapping"].map((l) => (
                   <li key={l}><span style={{ color: "var(--orange)" }}>✓</span><span>{l}</span></li>
                 ))}
               </ul>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { productPages, segments } from "@/content/product";
+import { docPages } from "@/content/docs";
 import { appLogin, appSignup } from "@/lib/seo";
 import { Chevron } from "./Icons";
 import { MobileNav } from "./MobileNav";
@@ -10,7 +11,7 @@ import { SignupLink } from "./TrackLink";
 export function Brand() {
   return (
     <Link href="/" className="brand" aria-label="ResearcherNet home">
-      <Image src="/brand/lockup.png" alt="ResearcherNet" width={2181} height={535} priority />
+      <Image src="/brand/lockup.webp" alt="ResearcherNet" width={400} height={98} sizes="180px" priority unoptimized />
     </Link>
   );
 }
@@ -41,12 +42,16 @@ export function Nav() {
                   <Link key={i.href} href={i.href}><b>{i.title}</b><span>{i.sub}</span></Link>
                 ))}
                 <Link href="/institutional-pilot"><b>Institutional pilot</b><span>90 days, complimentary first year</span></Link>
+                <Link href="/pilot/provenance"><b>Provenance pilot</b><span>90 days, one department</span></Link>
               </div>
             </details>
             <Link href="/pricing">Pricing</Link>
             <details>
               <summary>Resources <Chevron /></summary>
               <div className="nav__menu">
+                {docPages.map((d) => (
+                  <Link key={d.slug} href={`/docs/${d.slug}`}><b>{d.nav}</b><span>Docs</span></Link>
+                ))}
                 <Link href="/blog"><b>Blog</b><span>Guides for researchers and institutions</span></Link>
                 <Link href="/compare"><b>Compare</b><span>ResearcherNet vs SciSpace, Elicit, Overleaf…</span></Link>
                 <Link href="/faq"><b>FAQ</b><span>Straight answers</span></Link>

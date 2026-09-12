@@ -37,7 +37,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
               </div>
               <div className="card card--flat">
                 <h2 className="h4">Founders</h2>
-                <p className="small mt-1">{facts.team.filter((t) => t.email).map((t) => (<span key={t.name}>{t.name} — <a href={`mailto:${t.email}`}>{t.email}</a><br /></span>))}</p>
+                <p className="small mt-1">{facts.team.map((t) => (<span key={t.name}>{t.name}, {t.role}{t.email ? <> — <a href={`mailto:${t.email}`}>{t.email}</a></> : null}<br /></span>))}</p>
               </div>
             </div>
             <div className="card">

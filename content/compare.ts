@@ -1,4 +1,5 @@
 import type { ComparePage } from "./types";
+import { facts } from "./facts";
 
 /**
  * "ResearcherNet vs X" comparison pages.
@@ -46,7 +47,7 @@ If you mainly need to read, summarise and paraphrase papers quickly, and you val
       "Optional on-premise deployment and GDPR- and DPDP-India-aligned data handling for institutions.",
     ],
     rows: [
-      { feature: "Semantic search across 300M+ papers", us: "yes", them: "yes" },
+      { feature: `Semantic search across ${facts.corpus} papers`, us: "yes", them: "yes" },
       { feature: "Chat with a paper / PDF", us: "yes", them: "yes" },
       { feature: "Literature review and gap analysis", us: "yes", them: "yes" },
       { feature: "Paraphraser and AI-content detector", us: "in development", them: "yes" },
@@ -71,7 +72,7 @@ If you mainly need to read, summarise and paraphrase papers quickly, and you val
     faqs: [
       {
         q: "Is ResearcherNet a replacement for SciSpace's Chat with PDF?",
-        a: "For summarising and questioning a paper, yes: ResearcherNet's Chat with Paper does the same job over a 300M+ paper index. SciSpace currently has a broader set of writing add-ons, such as a paraphraser and AI detector, which are still in development on ResearcherNet.",
+        a: `For summarising and questioning a paper, yes: ResearcherNet's Chat with Paper does the same job over a ${facts.corpus} paper index. SciSpace currently has a broader set of writing add-ons, such as a paraphraser and AI detector, which are still in development on ResearcherNet.`,
       },
       {
         q: "Does SciSpace help me find collaborators?",
@@ -108,14 +109,14 @@ If your job is producing rigorous, auditable systematic reviews, particularly in
       "Live collaboration on reviews at the Scale tier.",
     ],
     whereWeDiffer: [
-      "ResearcherNet's corpus is larger (300M+ vs 138M+) and is paired with Chat with Paper and a publication navigator.",
+      `ResearcherNet's corpus is larger (${facts.corpus} vs 138M+) and is paired with Chat with Paper and a publication navigator.`,
       "Collaboration is not a top-tier add-on: matching, profiles, chat, video and lab spaces are included from the free plan upward.",
       "A collaborative LaTeX editor with version control lets the review become the manuscript without leaving the workspace.",
       "Grant alerts, commercialisation readiness and SDG mapping serve the whole project lifecycle, not just the evidence stage.",
       "Professional at $29/month sits well below Elicit Pro at $49/month, and INR billing is available.",
     ],
     rows: [
-      { feature: "Paper corpus", us: "300M+", them: "138M+" },
+      { feature: "Paper corpus", us: `${facts.corpus}`, them: "138M+" },
       { feature: "Systematic review and screening", us: "yes", them: "yes, core strength" },
       { feature: "Structured data extraction tables", us: "partial", them: "yes, core strength" },
       { feature: "Chat with a paper", us: "yes", them: "partial" },
@@ -140,7 +141,7 @@ If your job is producing rigorous, auditable systematic reviews, particularly in
     faqs: [
       {
         q: "Can ResearcherNet run a systematic review like Elicit?",
-        a: "ResearcherNet offers systematic-review support and research gap analysis over a 300M+ paper index, which is enough for most literature reviews. Elicit's structured extraction and screening workflows are deeper and are the better fit for formal, protocol-driven reviews.",
+        a: `ResearcherNet offers systematic-review support and research gap analysis over a ${facts.corpus} paper index, which is enough for most literature reviews. Elicit's structured extraction and screening workflows are deeper and are the better fit for formal, protocol-driven reviews.`,
       },
       {
         q: "Does Elicit train on my data?",
@@ -177,14 +178,14 @@ If you want fast, trustworthy answers to "does the evidence support X?", or you 
       "A clean, focused interface with almost no learning curve.",
     ],
     whereWeDiffer: [
-      "ResearcherNet's index is larger (300M+ papers) and adds Chat with Paper and gap analysis on top of search.",
+      `ResearcherNet's index is larger (${facts.corpus} papers) and adds Chat with Paper and gap analysis on top of search.`,
       "It includes a collaboration workspace: matching, profiles, feed, chat, video meetings and lab spaces.",
       "A collaborative LaTeX editor with version control and LaTeX-to-Word conversion is built in.",
       "Grant alerts, funding discovery, commercialisation readiness and SDG mapping extend beyond search.",
       "Team and institution plans include role-based access control and optional on-premise deployment.",
     ],
     rows: [
-      { feature: "AI academic search", us: "yes, 300M+ papers", them: "yes, 200M+ papers" },
+      { feature: "AI academic search", us: `yes, ${facts.corpus} papers`, them: "yes, 200M+ papers" },
       { feature: "Evidence agreement summary (Consensus Meter)", us: "partial", them: "yes" },
       { feature: "Chat with a paper", us: "yes", them: "partial" },
       { feature: "Research gap analysis", us: "yes", them: "not a core focus" },
@@ -254,7 +255,7 @@ If your main goal is visibility, reads, citations and a wide passive audience, R
     ],
     rows: [
       { feature: "Researcher profiles and following", us: "yes", them: "yes" },
-      { feature: "Network size", us: "650+ active researchers", them: "25M+ researchers" },
+      { feature: "Network size", us: `${facts.researchersRegistered} active researchers`, them: "25M+ researchers" },
       { feature: "Q&A community", us: "partial (feed)", them: "yes" },
       { feature: "Jobs board", us: "no", them: "yes" },
       { feature: "AI collaborator matching", us: "yes", them: "partial (suggestions)" },
@@ -453,14 +454,14 @@ If you need a flexible thinking partner for writing, coding and explanation, Cha
       "Rapid model improvements and a large ecosystem of integrations.",
     ],
     whereWeDiffer: [
-      "ResearcherNet's AI is grounded in a 300M+ paper index, reducing the fabricated citations that general chatbots can produce.",
+      `ResearcherNet's AI is grounded in a ${facts.corpus} paper index, reducing the fabricated citations that general chatbots can produce.`,
       "Multi-LLM orchestration means you can draw on GPT, Claude and Llama-class models inside one research workflow.",
       "Collaborator matching, profiles, chat, HD video and lab spaces are built for research teams, not general users.",
       "A collaborative LaTeX editor, publication navigator and LaTeX-to-Word conversion serve the manuscript directly.",
       "Grant alerts, commercialisation readiness and SDG mapping have no equivalent in a general assistant.",
     ],
     rows: [
-      { feature: "Grounded in a scholarly paper index", us: "yes, 300M+ papers", them: "not by default" },
+      { feature: "Grounded in a scholarly paper index", us: `yes, ${facts.corpus} papers`, them: "not by default" },
       { feature: "Citations traceable to real papers", us: "yes", them: "partial, can hallucinate" },
       { feature: "General drafting, coding and explanation", us: "partial", them: "yes, core strength" },
       { feature: "Long-form web research reports", us: "partial", them: "yes (Deep Research)" },
@@ -485,7 +486,7 @@ If you need a flexible thinking partner for writing, coding and explanation, Cha
     faqs: [
       {
         q: "Does ChatGPT make up citations?",
-        a: "It can. ChatGPT is not grounded in a scholarly corpus by default and may produce plausible but non-existent references. ResearcherNet's search and Chat with Paper answer from an index of 300M+ real papers, so citations can be traced and checked.",
+        a: `It can. ChatGPT is not grounded in a scholarly corpus by default and may produce plausible but non-existent references. ResearcherNet's search and Chat with Paper answer from an index of ${facts.corpus} real papers, so citations can be traced and checked.`,
       },
       {
         q: "Does ResearcherNet use ChatGPT under the hood?",

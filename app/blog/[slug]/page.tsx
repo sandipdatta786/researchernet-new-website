@@ -9,14 +9,14 @@ import { Breadcrumb, CtaBand } from "@/components/Blocks";
 import { BlogEngagement } from "@/components/BlogEngagement";
 
 export function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }));
+  return blogPosts.filter((p) => !p.draft).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const p = blogPosts.find((x) => x.slug === slug);
   if (!p) return {};
-  return { ...pageMetadata({ title: p.title, description: p.description, path: `/blog/${p.slug}`, type: "article", publishedTime: p.publishDate, modifiedTime: p.updatedDate }), keywords: p.keywords };
+  return { ...pageMetadata({ title: p.title, description: p.description, path: `/blog/${p.slug}`, type: "article", publishedTime: p.publishDate, modifiedTime: p.updatedDate, noIndex: p.draft }), keywords: p.keywords };
 }
 
 const fmt = (iso: string) => new Date(iso + "T00:00:00Z").toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
@@ -26,7 +26,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const p = blogPosts.find((x) => x.slug === slug);
   if (!p) notFound();
   const html = renderMarkdown(p.content);
-  const more = blogPosts.filter((x) => x.slug !== p.slug).slice(0, 3);
+  const more = blogPosts.filter((x) => x.slug !== p.slug && !x.draft).slice(0, 3);
   return (
     <>
       <JsonLd data={[articleJsonLd(p), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: p.title, path: `/blog/${p.slug}` }])]} />

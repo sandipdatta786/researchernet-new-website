@@ -1426,4 +1426,354 @@ We will say clearly when these ship. Until then, the goal is the same: not to po
 **[Start writing on ResearcherNet →](https://app.researchernet.com/signup)**${CTA}
 `,
   },
+
+  {
+    slug: "overleaf-alternative-indian-universities",
+    title: "Overleaf Alternative for Indian Universities: Collaborative LaTeX with INR Billing and On-Premise Hosting",
+    description:
+      "Overleaf is the most mature collaborative LaTeX editor there is. Here is the honest case for when an Indian institution should still look elsewhere, and when it should not.",
+    keywords: [
+      "Overleaf alternative",
+      "collaborative LaTeX India",
+      "LaTeX editor INR billing",
+      "on-premise LaTeX editor",
+      "university LaTeX licence India",
+    ],
+    category: "Institutions",
+    readTime: "5 min read",
+    publishDate: "2026-09-12",
+    author: "Sandip Datta",
+    authorRole: "Co-Founder & Director, ResearcherNet",
+    draft: true,
+    content: `
+## Start with the part most comparisons skip
+
+Overleaf is very good, and an Indian university evaluating alternatives should say so out loud before it says anything else.
+
+It is the most mature collaborative LaTeX editor available. Its template coverage is extensive, its track-changes, comments and history are familiar to co-authors who have never used anything else, and it holds ISO 27001 certification alongside a large number of university-wide licences. There is a free tier that lets you write with one collaborator at no cost, and basic AI assistance inside the editor is growing.
+
+If LaTeX editing is the only capability your department needs, and you want the most refined version of it, Overleaf is the right answer. If your university already provides an Overleaf licence, the case for changing is weak. And if a specific journal template or a large existing project history lives there, moving is a cost with no obvious return.
+
+That is the honest starting position. What follows is the narrower set of cases where an Indian institution might still look elsewhere.
+
+## The three procurement problems
+
+The friction Indian institutions describe is rarely about the editor itself. It is about everything around it.
+
+**Billing.** Per-seat pricing in dollars is awkward for a department working from an annual budget in rupees, and finance offices frequently need a GST invoice rather than a card receipt.
+
+**Data residency.** Some institutions, and most CSIR-style laboratories, have policies about where unpublished work is allowed to sit. A hosted-only editor cannot answer that question.
+
+**Tool sprawl.** A researcher writing a paper is usually also searching literature, chasing co-authors and watching grant deadlines. Those are four subscriptions and four tabs, each renewed separately.
+
+## What ResearcherNet does differently
+
+ResearcherNet includes a real-time collaborative LaTeX editor with version control. That much is table stakes, and Overleaf does it better.
+
+The difference is what sits beside it. The editor lives in the same workspace as semantic search across 300M+ papers, Chat with Paper and research-gap analysis, so reading and writing happen in one place rather than across two products. AI collaborator matching, chat, HD video meetings and lab spaces bring co-authors into the workspace rather than just into the document. A publication navigator suggests journals and conferences for the manuscript you are actually writing. LaTeX-to-Word conversion covers the moment a journal or funder demands a .docx, which is not a core focus for Overleaf. Grant alerts, funding discovery and commercialisation readiness carry on after submission.
+
+On the three procurement problems specifically: institutional licences are billed annually in INR with a GST invoice, on-premise deployment is available for institutions with data-residency requirements, and the platform is designed in line with India's Digital Personal Data Protection Act 2023 and the GDPR. Access is role-based at project, lab and institution level, with audit logs, and unpublished work is never used to train public models.
+
+Two things are honestly not ready yet. **SSO is in development** — institutional email verification is what exists today. **SOC 2 preparation is in development** as well. If either is a hard procurement gate for you this quarter, that is a real reason to wait.
+
+## What a switch actually involves
+
+Worth being concrete, because "migrate your writing tool" is a sentence that hides a lot of work.
+
+A LaTeX project is portable in a way most documents are not: the source is text and the bibliography is text. Moving a manuscript is genuinely low-risk. What does not move is the surrounding habit, which is the real cost. Co-authors who know where track changes lives in one product will have to find it in another, mid-paper, usually close to a deadline.
+
+That is why the sensible unit of evaluation is a new project rather than an in-flight one, and why the pilot below is scoped to a department rather than a campus. Start a paper that has not been started yet, with co-authors who have opted in, and judge it on that.
+
+Template coverage is the other honest gap. Overleaf's library is extensive and ours is not the reason to switch. If your submissions depend on a specific journal template that already exists there, that is a concrete argument for staying.
+
+## So when should you not switch
+
+If your researchers are happy, your licence is paid, and LaTeX is the only thing you need, stay. Switching a writing tool mid-project is disruptive and the gain has to be larger than the disruption.
+
+The case for looking is narrower than most vendor blog posts admit. It is strongest when the institution is buying for a whole campus rather than a handful of users, when finance needs INR and GST, when a data-residency policy rules out hosted-only tools, or when the same budget is currently paying for three or four overlapping subscriptions.
+
+## How to test it without committing
+
+Institutions can run a pilot rather than take a decision on a demo. The institution-wide MOU year is complimentary: access for every researcher, a trained campus ambassador and a joint outcomes review at month six. A department that wants the 90-day provenance pilot, which builds a record of what AI contributed to a result, pays a fixed departmental fee, credited in full against the campus licence if the institution proceeds at that month-six review.
+
+Individual researchers can use ResearcherNet free, so a single faculty member can try the editor before anyone signs anything.
+
+ResearcherNet launched on 3 December 2025 at the IIC, Jadavpur University, and is used by 650+ registered researchers at institutions including IIT Kharagpur, Jadavpur University, ISI Kolkata, SVIST and the Harare Institute of Technology. Its underlying workflow system is the subject of Indian patent application 202531120470.
+
+## Read the full comparison
+
+We keep a detailed, dated feature-by-feature comparison, including Overleaf's public pricing and the rows where it wins: [ResearcherNet vs Overleaf](/compare/overleaf).
+
+If you are evaluating for a department or a campus rather than for yourself, the institutional view is here: [ResearcherNet for universities and institutions](/for/institutions).${CTA}`,
+  },
+  {
+    slug: "elicit-alternative-systematic-reviews-data-residency",
+    title: "Elicit Alternative for Systematic Reviews When Your Data Has to Stay Inside the Institution",
+    description:
+      "Elicit's structured extraction is deeper than ours. The question this post answers is narrower: what do you do when the review cannot leave your institution?",
+    keywords: [
+      "Elicit alternative",
+      "systematic review software India",
+      "on-premise systematic review",
+      "DPDP compliant research tools",
+      "evidence synthesis data residency",
+    ],
+    category: "Institutions",
+    readTime: "5 min read",
+    publishDate: "2026-09-12",
+    author: "Sandip Datta",
+    authorRole: "Co-Founder & Director, ResearcherNet",
+    draft: true,
+    content: `
+## Where Elicit is simply better
+
+Elicit runs formal systematic reviews and meta-analyses better than we do, and pretending otherwise would waste your time.
+
+Its structured data extraction tables are a core strength. Its screening workflows are deeper and are the better fit for protocol-driven reviews where every inclusion and exclusion decision has to be auditable. If you work in pharma, clinical or regulatory settings, its published case studies probably match your use case more closely than ours do. And if your team already has its writing, networking and funding tools sorted and only needs evidence synthesis, a specialist tool is the rational purchase.
+
+Choose Elicit in those cases. This post is about a different constraint.
+
+## The constraint: the review cannot leave
+
+Some work cannot be uploaded to a hosted service at all. An unpublished trial dataset, a manuscript under embargo, a laboratory's internal technology portfolio, a review that touches personal data covered by India's Digital Personal Data Protection Act 2023.
+
+For that work the question is not which tool extracts most cleanly. It is which tool can run where the policy says the data has to sit.
+
+## What ResearcherNet offers for that case
+
+ResearcherNet provides systematic-review support and research-gap analysis over a 300M+ paper index. For most literature reviews that is enough. It is not as deep as Elicit's extraction, and we say so on the comparison page itself.
+
+What it adds is a deployment answer. On-premise deployment is available for institutions with data-residency or AI-policy requirements, and institutions can substitute models or run constrained configurations to meet their own policies. Data is encrypted at rest and in transit. Access is role-based at project, lab and institution level, with audit logs, and optional end-to-end encryption is available for sensitive work. Unpublished manuscripts are never used to train public models. The platform is designed in line with the DPDP Act 2023 and the GDPR, with a named grievance and data-protection contact.
+
+Billing is the other practical difference for an Indian institution: campus licences are billed annually in INR with a GST invoice.
+
+## What is not ready
+
+Two capabilities relevant to review work are **in development**, and neither should be counted in a procurement decision today.
+
+**Multilingual plagiarism and AI-content detection** is in development. **The Research Ledger** — a contribution and model ledger, a verification step before a result is marked accepted, and an exportable provenance report for journals, funders and IP cells — is also in development, and is being shaped with pilot departments rather than designed in isolation.
+
+**SSO and SOC 2 preparation** are in development too. Institutional email verification is what exists today.
+
+If a formal review protocol requires auditable AI-contribution records right now, neither we nor most of the field can give you that yet. That is worth knowing before a demo rather than after.
+
+## What on-premise actually means here
+
+"On-premise" is used loosely enough in this market to be worth unpacking.
+
+For ResearcherNet it means the platform can be deployed inside an institution's own environment for institutions with data-residency or AI-policy requirements, and that institutions can substitute models or run constrained configurations so the AI layer matches their policy rather than ours. The multi-LLM orchestration layer routes tasks across models, which is what makes substitution possible in the first place.
+
+What it does not mean is that you inherit a different product. The same semantic search, gap analysis, LaTeX editor and collaborator matching run either way. The deployment choice is about where the data sits and which models touch it, not about which features you get.
+
+If your policy question is narrower than full on-premise — for example that unpublished manuscripts must never reach a training corpus — that is answered without any deployment change. Unpublished work is never used to train public models, and aggregated, de-identified interaction data is the only thing that improves the platform's own recommendations.
+
+## How to scope a review pilot
+
+The mistake institutions make is scoping a pilot around the tool rather than around a deliverable.
+
+A useful scope is one department, one real review, and one question: at the end, does the team have a literature review they would actually submit? Twenty-five to fifty researchers is the size the provenance pilot is built around, with a faculty lead and a research-office or IP-cell nominee named up front, because an evaluation with no owner produces no verdict.
+
+Set the measure before you start. Time from idea to a submission-ready record is a better measure than seats logged in. So is the number of projects that end the pilot with a complete record behind them.
+
+## The one-subscription argument, stated carefully
+
+Evidence synthesis rarely happens alone. The same review usually involves finding co-authors, writing the manuscript and, eventually, chasing funding.
+
+ResearcherNet puts evidence work, collaborator discovery on a research knowledge graph, a collaborative LaTeX editor with version control and LaTeX-to-Word conversion, and grant alerts in one workspace. Elicit reserves live collaboration for its Scale tier and above.
+
+That argument only matters if you actually need those other things. If you do not, it is not an argument at all.
+
+## How institutions usually test this
+
+The institution-wide MOU year is complimentary: access for every researcher, a trained campus ambassador and a joint outcomes review at month six. A department that wants the 90-day provenance pilot pays a fixed departmental fee, credited in full against the campus licence if the institution proceeds at that review.
+
+Individual researchers can use ResearcherNet free, which is usually the fastest way for one person to judge whether the search and gap analysis are good enough for their field before anyone involves procurement.
+
+## Read the full comparison
+
+The dated, feature-by-feature comparison, including Elicit's public pricing and the rows where it wins, is here: [ResearcherNet vs Elicit](/compare/elicit).
+
+For the institutional view, including dashboards, the campus ambassador programme and the security posture in full: [ResearcherNet for universities and institutions](/for/institutions).${CTA}`,
+  },
+  {
+    slug: "researchgate-alternative-finding-collaborators-india",
+    title: "ResearchGate Alternative for Finding Research Collaborators in India",
+    description:
+      "ResearchGate has far more researchers than we do, and that matters. Here is the honest difference between being findable and actively finding someone.",
+    keywords: [
+      "ResearchGate alternative",
+      "find research collaborators India",
+      "research collaboration platform",
+      "academic networking India",
+      "research knowledge graph",
+    ],
+    category: "Collaboration",
+    readTime: "5 min read",
+    publishDate: "2026-09-12",
+    author: "Sandip Datta",
+    authorRole: "Co-Founder & Director, ResearcherNet",
+    draft: true,
+    content: `
+## The size difference is real
+
+ResearchGate has many millions of researchers. ResearcherNet has 650+ registered researchers. Any post that skips past that number is selling you something.
+
+If what you want is maximum visibility for your publications and your profile, ResearchGate is the better place to be, and it costs nothing. It has a large question-and-answer community and a jobs board. If you need a free, well-known profile page and nothing more, you already have the right tool, and you should keep it.
+
+Most researchers in India will sensibly use both. What follows is the narrower thing a smaller, denser network can do that a large one structurally cannot.
+
+## Findable is not the same as finding
+
+A profile on a large network makes you discoverable. Someone has to go looking.
+
+The harder problem is the reverse: you have a specific gap in a specific project, and you need to identify the person who can close it, at an institution you may never have visited, working on a problem adjacent to yours rather than identical to it. Search and follow do not solve that. A feed does not solve it either.
+
+ResearcherNet builds a research knowledge graph from publications, expertise domains and projects, then ranks potential collaborators by the semantic similarity of their work adjusted for their position in the graph. The intent is to surface people you would not find through manual networking. ResearchGate offers suggestions, but recommendation is not its core job.
+
+## What happens after the match
+
+The second structural difference is what the platform lets you do once you have found someone.
+
+On ResearcherNet, collaborator matching sits beside real-time chat, HD video meetings, lab spaces and shared projects, and a collaborative LaTeX editor with version control. The path from "this person looks relevant" to "we are writing together" stays inside one workspace. Semantic search across 300M+ papers, Chat with Paper and research-gap analysis are in the same place, as are grant alerts matched to your profile.
+
+The honest framing is the one on our comparison page: choose ResearchGate if you want visibility and a large community, and choose ResearcherNet if you want to actively find collaborators and start working with them rather than just follow them.
+
+## How the matching actually works
+
+It is worth being specific, because "AI-powered matching" is a phrase that usually means a keyword search with better marketing.
+
+The graph is built from publications, expertise domains and projects. Candidates are ranked by the semantic similarity of their work, adjusted for their position in the graph. Two consequences follow from that adjustment. Someone who works on a problem adjacent to yours can rank above someone whose keywords match exactly, which is usually what you want when you are looking for a complementary skill rather than a competitor. And a researcher who bridges two communities can surface even when neither community would have found them by search.
+
+The same graph drives interdisciplinary suggestions, which is the case manual networking handles worst: you cannot ask for an expert in a field you do not know exists.
+
+## Using both is the normal answer
+
+For most researchers this is not a replacement decision.
+
+Keep the ResearchGate profile. It is free, it is where people already look for you, and visibility is a real asset. Import your publication record into ResearcherNet with one-click Google Scholar or ORCID import, which takes minutes, and use the graph for the specific job of finding people to work with.
+
+The two do different things. One makes you findable to a very large audience. The other is built to help you find someone in particular, and then to give you somewhere to do the work.
+
+## The things that are different rather than better
+
+Two differences are worth stating plainly because they cut both ways.
+
+**No advertising.** ResearchGate is free for researchers and earns revenue from advertising and recruiter products. ResearcherNet is free for individual researchers and earns revenue from institutional licences instead. That is a different business model, not automatically a better one, but it does mean your attention is not the product.
+
+**Access control.** Access is role-based at project, lab and institution level, with audit logs, and on-premise deployment is available for institutions with data-residency requirements. Unpublished work is never used to train public models. For a lab that keeps unpublished material in shared projects, that matters more than reach does.
+
+Importing your existing work is deliberately cheap: profiles can be created via one-click Google Scholar and ORCID import.
+
+## What is not ready yet
+
+**SSO is in development**; institutional email verification is what exists today. **SOC 2 preparation is in development** as well. The **Research Ledger** for recording what an AI model contributed to a result is in development and is being shaped with pilot departments.
+
+## Where the density actually is
+
+650+ registered researchers is small in absolute terms. It is less small if the people you need are in it. Today that community spans IIT Kharagpur, Jadavpur University, ISI Kolkata, SVIST and the Harare Institute of Technology, and the platform launched on 3 December 2025 at the IIC, Jadavpur University.
+
+For an Indian researcher looking for collaborators at those institutions, density in the right places beats scale in the wrong ones. For a researcher whose field sits elsewhere, that argument does not hold yet, and we would rather you knew that before signing up than after.
+
+## Read the full comparison
+
+The dated, feature-by-feature comparison, including the rows where ResearchGate wins: [ResearcherNet vs ResearchGate](/compare/researchgate).
+
+If you are looking at this for a department or a campus rather than for yourself: [ResearcherNet for universities and institutions](/for/institutions).${CTA}`,
+  },
+
+  {
+    slug: "measuring-collaborator-matching-precision",
+    title: "How We Measured Collaborator-Matching Precision on ResearcherNet",
+    description:
+      "The method behind our collaborator-matching evaluation: how the dataset was built, what precision means here, and what we found. Method published in full so it can be checked.",
+    keywords: [
+      "collaborator matching evaluation",
+      "research knowledge graph precision",
+      "recommender evaluation research",
+      "AI collaborator recommendation accuracy",
+    ],
+    category: "Research",
+    readTime: "6 min read",
+    publishDate: "2026-09-12",
+    author: "Sandip Datta",
+    authorRole: "Co-Founder & Director, ResearcherNet",
+    draft: true,
+    content: `
+> **DRAFT — NOT FOR PUBLICATION.** Every figure in the Method and Results sections below is a
+> placeholder written as [[LIKE_THIS]]. Nothing has been filled in, and nothing should be
+> inferred from the surrounding prose. Replace every placeholder, or delete the section, before
+> this goes anywhere near publication.
+
+## Why publish a method at all
+
+Most claims about AI matching quality are unfalsifiable. A vendor says its recommendations are good, shows three screenshots, and moves on. There is no dataset, no definition of what counted as correct, and no way for a reader to disagree.
+
+We would rather publish the method first and the number second, so that a researcher who thinks the method is wrong can say so precisely.
+
+This post sets out how we evaluated the collaborator-matching engine. The engine builds a research knowledge graph from publications, expertise domains and projects, then ranks potential collaborators by the semantic similarity of their work adjusted for their position in the graph. The evaluation question is narrow: when it puts someone at the top of that ranking, how often is that person actually a plausible collaborator?
+
+## What precision means here
+
+Precision in a recommender context is not the same as accuracy, and the difference matters.
+
+We are not asking whether the system found every possible collaborator for a researcher. That is recall, it needs a complete ground truth we do not have, and any claim about it would be unverifiable. We are asking a narrower and checkable question: of the suggestions the system actually surfaced, what proportion were judged correct?
+
+That makes this a precision-at-k measurement, where k is the number of suggestions shown.
+
+- **Metric:** [[METRIC — e.g. precision@5, precision@10, MRR; state exactly which and why]]
+- **Cut-off k:** [[K]]
+- **Correct means:** [[JUDGING_CRITERION — the explicit rule a rater applied, e.g. "a domain expert would consider this pairing plausible for a joint proposal"]]
+
+## Method
+
+### Dataset
+
+- **Source:** [[DATASET — where the researcher profiles came from, and how they were sampled]]
+- **Sample size:** [[N]] researchers, [[N_PAIRS]] ranked suggestions judged
+- **Date range:** [[DATE_RANGE]]
+- **Exclusions:** [[EXCLUSIONS — e.g. profiles with fewer than X publications, self-matches, co-authors within Y years]]
+
+The last one matters more than it looks. A matcher that recommends people you have already published with will score well and be useless. State the exclusion rule explicitly, because a reader cannot otherwise tell whether the number is meaningful.
+
+### Judging
+
+- **Who judged:** [[RATERS — how many, what expertise, whether they were independent of the team]]
+- **Blinding:** [[BLINDING — did raters know which system produced a suggestion, or its rank position]]
+- **Agreement:** [[INTER_RATER_AGREEMENT — e.g. Cohen's kappa, and how disagreements were resolved]]
+
+If agreement between raters is low, the headline number means very little, so it belongs in the post rather than in a footnote.
+
+### Baseline
+
+- **Compared against:** [[BASELINE — e.g. keyword search over the same corpus, random sampling from the same field, or co-citation only]]
+
+A precision figure with no baseline is not interpretable. Whatever the number turns out to be, the honest question is how much better it is than the obvious cheap alternative.
+
+## Results
+
+- **Headline:** [[RESULT — the primary metric with its value]]
+- **Baseline comparison:** [[BASELINE_RESULT]]
+- **Confidence interval or variance:** [[CI]]
+- **Breakdown:** [[BREAKDOWN — by field, seniority, institution, or whatever cut is honest]]
+
+## Limitations we already know about
+
+These hold regardless of what the numbers turn out to be, so they can be written now.
+
+The platform currently has 650+ registered researchers across institutions including IIT Kharagpur, Jadavpur University, ISI Kolkata, SVIST and the Harare Institute of Technology. That is a small and geographically concentrated graph. A precision figure measured on it says something about how the engine performs on this population, and very little about how it would perform on a graph a hundred times larger or one centred on a different research community.
+
+Plausibility judged by a rater is also not the same as a collaboration that actually happened. The honest version of that measurement takes years, and we do not have it.
+
+Finally, the ranking depends on profile completeness. A researcher who imported a full publication record via Google Scholar or ORCID is a different input from one who filled in three fields by hand, and the evaluation should say how that was handled: [[PROFILE_COMPLETENESS_HANDLING]].
+
+## What we are not claiming
+
+We are not claiming the engine finds the best possible collaborator, that it beats a specific competitor, or that the figure generalises beyond the population described above. The collaborator-recommendation module is one of the components covered by Indian patent application 202531120470; a patent application is a legal filing, not evidence of accuracy, and should not be read as one.
+
+## Reproducing this
+
+[[REPRODUCTION — whether the judged set can be shared, under what terms, and who to contact]]
+
+If you want to see the matching engine on your own field rather than ours, individual researchers can use ResearcherNet free. For an institutional view, see [ResearcherNet for universities and institutions](/for/institutions).${CTA}`,
+  },
 ];

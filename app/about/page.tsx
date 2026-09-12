@@ -1,4 +1,7 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { facts } from "@/content/facts";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
@@ -15,6 +18,12 @@ export const metadata: Metadata = pageMetadata({
 const personJsonLd = facts.team.map((t) => ({
   "@context": "https://schema.org", "@type": "Person", name: t.name, jobTitle: t.role, worksFor: { "@id": `${SITE_URL}/#organization` }, url: `${SITE_URL}/about`,
 }));
+
+/** Photo slot: /public/team/<slug>.jpg. Missing files fall back to the neutral initials avatar. */
+const teamPhoto = (slug: string) => {
+  const rel = `/team/${slug}.jpg`;
+  return fs.existsSync(path.join(process.cwd(), "public", rel)) ? rel : null;
+};
 
 export default function AboutPage() {
   return (
@@ -53,15 +62,23 @@ export default function AboutPage() {
           <Eyebrow>Leadership</Eyebrow>
           <h2 className="h2 mb-4">Founders</h2>
           <div className="grid grid-4">
-            {facts.team.map((t) => (
-              <div key={t.name} className="card">
-                <div className="avatar avatar--lg mb-3" aria-hidden>{t.initials}</div>
-                <h3 className="h4">{t.name}</h3>
-                <div className="accent small mt-1">{t.role}</div>
-                <p className="small mt-2">{t.bio}</p>
-                {t.email && <a className="small dim" href={`mailto:${t.email}`}>{t.email}</a>}
-              </div>
-            ))}
+            {facts.team.map((t) => {
+              const photo = teamPhoto(t.slug);
+              return (
+                <div key={t.name} className="card">
+                  {photo ? (
+                    <Image className="avatar avatar--lg avatar--photo mb-3" src={photo} alt={t.name} width={64} height={64} />
+                  ) : (
+                    <div className="avatar avatar--lg mb-3" aria-hidden>{t.initials}</div>
+                  )}
+                  <h3 className="h4">{t.name}</h3>
+                  <div className="accent small mt-1">{t.role}</div>
+                  <p className="small mt-2">{t.bio}</p>
+                  {t.email && <a className="small dim" href={`mailto:${t.email}`}>{t.email}</a>}
+                  {t.linkedin && <a className="small dim" href={t.linkedin} rel="noopener" target="_blank">LinkedIn</a>}
+                </div>
+              );
+            })}
           </div>
           {facts.advisors.length > 0 && (
             <>

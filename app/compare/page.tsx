@@ -8,7 +8,7 @@ import { PageHero, CtaBand } from "@/components/Blocks";
 import { ArrowRight } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "ResearcherNet vs SciSpace, Elicit, Consensus & More",
+  title: "ResearcherNet vs SciSpace, Elicit, Consensus, Overleaf, Paperpal and ChatGPT",
   description: "Honest, feature-by-feature comparisons of AI research tools — and when to choose each. Compare ResearcherNet with SciSpace, Elicit, Consensus, ResearchGate, Overleaf, Paperpal and ChatGPT.",
   path: "/compare",
 });

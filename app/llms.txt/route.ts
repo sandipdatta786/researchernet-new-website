@@ -18,7 +18,7 @@ Recognition: ${facts.recognition.map((r) => `${r.title} (${r.org}, ${r.date})`).
 
 Founders: ${facts.team.map((t) => `${t.name} (${t.role})`).join("; ")}.${facts.advisors.length ? ` Advisor: ${facts.advisors.map((a) => a.name).join(", ")}.` : ""}
 
-Pricing: ${facts.pricing.tiers.map((t) => `${t.name} ${t.usd === null ? "custom" : t.usd === 0 ? "free" : `$${t.usd}/month`}`).join(", ")}. Institutional pilots include complimentary first-year access under an MOU.
+Pricing: ${facts.pricing.tiers.filter((t) => !t.hidden).map((t) => `${t.name} ${t.usd === null ? "custom" : t.usd === 0 ? "free" : `$${t.usd}/month`}`).join(", ")}. Institutional pilots include complimentary first-year access under an MOU.
 
 Application: ${APP_URL}
 
@@ -41,7 +41,7 @@ ${segments.map((s) => `- For ${s.nav}: ${SITE_URL}/for/${s.slug}`).join("\n")}
 ${comparePages.map((c) => `- ResearcherNet vs ${c.competitor}: ${SITE_URL}/compare/${c.slug}`).join("\n")}
 
 ## Blog
-${blogPosts.map((b) => `- ${b.title}: ${SITE_URL}/blog/${b.slug}`).join("\n")}
+${blogPosts.filter((b) => !b.draft).map((b) => `- ${b.title}: ${SITE_URL}/blog/${b.slug}`).join("\n")}
 
 Contact: ${facts.emails.hello}
 Last updated: ${facts.lastUpdated}

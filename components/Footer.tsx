@@ -13,7 +13,7 @@ export function Footer() {
             <Brand />
             <p className="muted small mt-2" style={{ maxWidth: 320 }}>{facts.tagline} {facts.description}</p>
             <div className="badge-row mt-3">
-              <span className="pill">Patent pending · IN {facts.patent.number}</span>
+              <span className="pill">Patent pending · {facts.patentNumber}</span>
               <span className="pill">Made in India</span>
             </div>
             <p className="dim tiny mt-3">

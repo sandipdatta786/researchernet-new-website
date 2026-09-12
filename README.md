@@ -9,7 +9,7 @@ The application itself lives at **app.researchernet.com**; this site owns the ro
 - **Next.js 15** (App Router, static generation for every marketing page) · **React 19** · **TypeScript**
 - Vanilla CSS design system in `app/globals.css` (no utility framework) — dark, editorial, orange accent
 - `marked` for first-party Markdown (blog, comparisons, legal)
-- Deployed on **Vercel** (`vercel.json` pins the Mumbai region)
+- Deployed on **Railway** (`railway.json` pins the region; see Deploy on Railway)
 
 ## Run it
 
@@ -35,6 +35,39 @@ npm run lint && npm run typecheck
 5. After DNS propagates: verify https on both hosts, confirm `/signup` redirects to the app, submit `https://researchernet.com/sitemap.xml` in Google Search Console and request indexing for the priority pages.
 
 Every pull request gets a Vercel preview URL; previews send `X-Robots-Tag: noindex` and a disallow-all `robots.txt` automatically.
+
+## Deploy on Railway
+
+The service region is pinned in `railway.json`:
+
+```json
+"deploy": { "region": "asia-southeast1" }
+```
+
+`asia-southeast1` (Singapore) is the closest Railway region to the Mumbai region the site
+previously used on Vercel. Railway has no Indian region; if latency to Indian institutions
+matters more than anything else, measure `asia-southeast1` against `europe-west4` before
+settling.
+
+**Changing the region.** `railway.json` is applied on the next deploy, but Railway also
+holds a region per service in its dashboard, and the dashboard value wins for an existing
+service. To move a running service:
+
+1. Railway → your project → select the **service** → **Settings**.
+2. Under **Deploy → Region**, pick the new region.
+3. **Redeploy** the service. Railway provisions in the new region and cuts over when the
+   new instance passes its health check; the old one is torn down after.
+4. Confirm `railway.json` names the same region, so a fresh service or a PR environment
+   does not come up somewhere else.
+
+Region changes replace the running container, so expect a short restart. Anything held on
+the local filesystem does not survive; this app keeps no local state.
+
+**What needs a server.** Do not switch this app to a static export without removing these
+first: the currency middleware (`middleware.ts`), the lead API (`/api/lead`), and the CSP
+report sink (`/csp-report`). `/contact` also reads `searchParams` at request time.
+
+> `vercel.json` is left in the repository for reference. It has no effect on Railway.
 
 ## Where things live
 

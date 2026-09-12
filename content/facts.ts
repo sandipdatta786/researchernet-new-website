@@ -9,10 +9,33 @@ const env = (v: string | undefined, fallback: string) => (v && v.trim() ? v.trim
 export const SITE_URL = env(process.env.NEXT_PUBLIC_SITE_URL, "https://researchernet.com");
 export const APP_URL = env(process.env.NEXT_PUBLIC_APP_URL, "https://app.researchernet.com");
 
-export type PricingTier = { id: string; name: string; usd: number | null; period: string; blurb: string; features: string[]; cta: string; highlight?: boolean };
-export type Person = { name: string; role: string; bio: string; initials: string; email?: string };
+export type PricingTier = { id: string; name: string; usd: number | null; period: string; blurb: string; features: string[]; cta: string; highlight?: boolean; hidden?: boolean };
+export type Person = { name: string; role: string; bio: string; initials: string; slug: string; email?: string; linkedin?: string };
 export type Recognition = { id: string; title: string; org: string; short?: string; date: string; kind: string; detail: string; url?: string };
 export type Institution = { name: string; short: string; full?: string };
+
+/**
+ * Canonical facts. Every number below is referenced, never retyped.
+ * researchersActive is null until a monthly-active figure is confirmed; while it is null
+ * the researcher stat renders as "<registered> registered researchers".
+ */
+const researchersRegistered = "650+";
+const researchersActive: number | null = null;
+const researchersValue = typeof researchersActive === "number" ? String(researchersActive) : researchersRegistered;
+const researchersLabel = typeof researchersActive === "number" ? "monthly active researchers" : "registered researchers";
+const corpus = "300M+";
+const patentNumberRaw = "202531120470";
+const patentNumber = `IN ${patentNumberRaw}`;
+const patentClaims = 10;
+const launchDate = "3 December 2025";
+const pricesAsOf = "2026-09-12";
+/**
+ * Product walkthrough. Accepts a YouTube watch/short URL (rendered as a click-to-load
+ * lite embed) or a direct .mp4 (rendered as a <video preload="none">). Empty until the
+ * final URL is supplied; while empty the demo block shows the request-a-demo link only.
+ */
+const walkthroughUrl = "";
+const walkthroughPoster = "/media/walkthrough-poster.jpg";
 
 const pricingTiers: PricingTier[] = [
       {
@@ -22,11 +45,12 @@ const pricingTiers: PricingTier[] = [
         period: "forever",
         blurb: "For individual researchers getting started.",
         features: [
-          "Semantic search across 300M+ papers",
+          `Semantic search across ${corpus} papers`,
           "Chat with Paper (fair-use limits)",
           "Researcher profile & network",
           "Collaborator suggestions",
           "Collaborative LaTeX editor",
+          "Role-based access at project level",
           "Community feed & messaging",
         ],
         cta: "Start free",
@@ -43,10 +67,12 @@ const pricingTiers: PricingTier[] = [
           "Publication navigator (journal & conference matching)",
           "LaTeX ↔ Word conversion",
           "Grant alerts matched to your profile",
+          "Role-based access at project level",
           "Priority support",
         ],
         cta: "Start Professional",
         highlight: true,
+        hidden: true,
       },
       {
         id: "team",
@@ -58,11 +84,12 @@ const pricingTiers: PricingTier[] = [
           "Everything in Professional",
           "Lab spaces with shared projects",
           "HD video meetings with recording",
-          "Role-based access control",
+          "Lab-level roles and audit logs",
           "Team analytics & milestone tracking",
           "Onboarding session for your group",
         ],
         cta: "Start Team",
+        hidden: true,
       },
       {
         id: "institution",
@@ -71,15 +98,61 @@ const pricingTiers: PricingTier[] = [
         period: "custom",
         blurb: "For universities, research labs and R&D organisations.",
         features: [
+          "Billed annually in INR with GST invoice",
           "Campus-wide or lab-wide licence",
           "Institutional dashboard & SDG impact mapping",
-          "SSO and on-premise deployment options",
+          "On-premise deployment option · SSO (in development)",
           "Trained campus ambassador programme",
           "Complimentary first year for pilot institutions (MOU)",
           "Dedicated success manager",
         ],
         cta: "Book a pilot",
       },
+];
+
+const institutionList: Institution[] = [
+  { name: "IIT Kharagpur", short: "IIT KGP" },
+  { name: "Jadavpur University", short: "JU" },
+  { name: "ISI Kolkata", short: "ISI" },
+  { name: "SVIST", short: "SVIST", full: "Swami Vivekananda Institute of Science and Technology" },
+  { name: "Harare Institute of Technology", short: "HIT" },
+];
+
+const teamList: Person[] = [
+    {
+      name: "Dr. Asfak Ali",
+      role: "Founder & CEO",
+      bio: "PhD, Jadavpur University. Director, Deep Duo Foundation. Leads product and research science.",
+      initials: "AA",
+      slug: "asfak-ali",
+      email: "asfak@researchernet.com",
+      linkedin: "",
+    },
+    {
+      name: "Sandip Datta",
+      role: "Co-Founder & Director",
+      bio: "27+ years at TCS, IBM and EY, where he founded a Generative AI practice. IBM patent holder. Dean of Innovation & Entrepreneurship, SVIST. Founder & CEO, AIMTECH Dynamics.",
+      initials: "SD",
+      slug: "sandip-datta",
+      email: "sandip@researchernet.com",
+      linkedin: "",
+    },
+    {
+      name: "Dr. Suvojit Acharjee",
+      role: "Co-Founder & Architect",
+      bio: "10+ years in academia; researcher with 50+ peer-reviewed publications. Owns platform architecture.",
+      initials: "SA",
+      slug: "suvojit-acharjee",
+      linkedin: "",
+    },
+    {
+      name: "Dr. Nandan Gupta",
+      role: "Co-Founder",
+      bio: "Chairman, Swami Vivekananda Group of Institutes. Co-inventor on the ResearcherNet patent application.",
+      initials: "NG",
+      slug: "nandan-gupta",
+      linkedin: "",
+    },
 ];
 
 export const facts = {
@@ -98,7 +171,7 @@ export const facts = {
     country: "India",
     countryCode: "IN",
   },
-  launch: { date: "2025-12-03", display: "3 December 2025", venue: "Jadavpur University, Kolkata" },
+  launch: { date: "2025-12-03", display: launchDate, venue: "Jadavpur University, Kolkata" },
   emails: {
     hello: "hello@researchernet.com",
     sandip: "sandip@researchernet.com",
@@ -115,27 +188,32 @@ export const facts = {
     youtube: "",
     github: "https://github.com/sandipdatta786/researchernet-new-website",
   },
+  researchersRegistered,
+  researchersActive,
+  institutionsCount: institutionList.length,
+  corpus,
+  patentClaims,
+  patentNumber,
+  launchDate,
+  founders: teamList.length,
+  pricesAsOf,
+  walkthroughUrl,
+  walkthroughPoster,
   stats: {
-    researchers: { value: "650+", label: "Active researchers", note: "as of September 2026" },
-    papers: { value: "300M+", label: "Papers indexed", note: "semantic search corpus" },
-    institutions: { value: "5+", label: "Institutions", note: "IIT Kharagpur, JU, ISI Kolkata, SVIST, HIT and more" },
-    patentClaims: { value: "10", label: "Patent claims filed", note: "IN 202531120470" },
+    researchers: { value: researchersValue, label: researchersLabel, note: "as of September 2026" },
+    papers: { value: corpus, label: "Papers indexed", note: "semantic search corpus" },
+    institutions: { value: String(institutionList.length), label: "Institutions", note: "IIT Kharagpur, JU, ISI Kolkata, SVIST, HIT and more" },
+    patentClaims: { value: String(patentClaims), label: "Patent claims filed", note: patentNumber },
   },
-  institutions: [
-    { name: "IIT Kharagpur", short: "IIT KGP" },
-    { name: "Jadavpur University", short: "JU" },
-    { name: "ISI Kolkata", short: "ISI" },
-    { name: "SVIST", short: "SVIST", full: "Swami Vivekananda Institute of Science and Technology" },
-    { name: "Harare Institute of Technology", short: "HIT" },
-  ] as Institution[],
+  institutions: institutionList,
   patent: {
     title: "A System of AI Driven Research Workflow",
-    number: "202531120470",
+    number: patentNumberRaw,
     filed: "2025-12-02",
     filedDisplay: "2 December 2025",
     office: "Indian Patent Office, Kolkata",
     type: "Ordinary application with complete specification",
-    claims: 10,
+    claims: patentClaims,
     status: "Filed — under process",
     inventors: ["Sandip Datta", "Dr. Nandan Gupta", "Dr. Asfak Ali", "Gargi Gupta"],
   },
@@ -144,34 +222,7 @@ export const facts = {
     inrRate: 84, // display-only approximation for the INR toggle; confirm before launch
     tiers: pricingTiers,
   },
-  team: [
-    {
-      name: "Dr. Asfak Ali",
-      role: "Founder & CEO",
-      bio: "PhD, Jadavpur University. Director, Deep Duo Foundation. Leads product and research science.",
-      initials: "AA",
-      email: "asfak@researchernet.com",
-    },
-    {
-      name: "Sandip Datta",
-      role: "Co-Founder & Director",
-      bio: "27+ years at TCS, IBM and EY, where he founded a Generative AI practice. IBM patent holder. Dean of Innovation & Entrepreneurship, SVIST. Founder & CEO, AIMTECH Dynamics.",
-      initials: "SD",
-      email: "sandip@researchernet.com",
-    },
-    {
-      name: "Dr. Suvojit Acharjee",
-      role: "Co-Founder & Architect",
-      bio: "10+ years in academia; researcher with 50+ peer-reviewed publications. Owns platform architecture.",
-      initials: "SA",
-    },
-    {
-      name: "Dr. Nandan Gupta",
-      role: "Co-Founder",
-      bio: "Chairman, Swami Vivekananda Group of Institutes. Co-inventor on the ResearcherNet patent application.",
-      initials: "NG",
-    },
-  ] as Person[],
+  team: teamList,
   advisors: [] as Person[],
   recognition: [
     { id: "eureka", title: "Eureka 2026 — Zonal Round", org: "E-Cell, IIT Bombay", short: "E-Cell IIT Bombay", date: "September 2026", kind: "Selection", detail: "Selected for the Zonal round of Eureka, Asia's largest business model competition, run by the Entrepreneurship Cell of IIT Bombay.", url: "https://www.ecell.in/eureka/structure" },
@@ -185,17 +236,14 @@ export const facts = {
     { id: "launch", title: "Platform launch", org: "Jadavpur University, Kolkata", date: "3 December 2025", kind: "Milestone", detail: "ResearcherNet launched at IIC Jadavpur University." },
     { id: "aic", title: "AIC Techno India", org: "Atal Incubation Centre · Pre-incubation", short: "Pre-incubation", date: "2026", kind: "Selection", detail: "Selected into the pre-incubation programme at AIC Techno India (Atal Incubation Centre)." },
   ] as Recognition[],
-  testimonials: [
-    { quote: "The semantic search found critical papers our previous tools missed.", name: "Prof. Sheli Sinha Chaudhuri", role: "Electronics & Tele-communication Engineering, Jadavpur University" },
-    { quote: "We finished our last grant proposal faster because the editor and citations finally felt native.", name: "Prof. Sayan Chatterjee", role: "Electronics & Tele-communication Engineering, Jadavpur University" },
-    { quote: "Managing climate datasets here feels stable, legible, and built for researchers instead of file storage admins.", name: "Dr. Chinmoy Ghorai", role: "Electronics & Tele-communication Engineering, Jadavpur University" },
-  ],
+  // Testimonials moved to lib/testimonials.ts so the home page, /for/institutions
+  // and /pilot/provenance share one list.
   investors: {
     round: "Seed",
     ask: "₹2–3 Crore",
     runway: "18 months",
     status: "Open",
-    milestones: ["Convert active institutional pilots into paid licences", "Integrity suite (plagiarism & AI-content detection) live", "2,500 paid users and ₹2–3 Cr ARR by month 18"],
+    milestones: ["Convert active institutional pilots into paid licences", "Integrity suite (plagiarism & AI-content detection) live", "20–30 institutions on paid campus licences and ₹2–3 Cr ARR by month 18"],
     allocation: [
       { label: "Product & AI development", pct: 45 },
       { label: "Go-to-market & community", pct: 25 },

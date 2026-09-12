@@ -22,7 +22,7 @@
   --green: #34d399;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --radius: 14px;
   --radius-sm: 8px;
   --container: 1180px;
@@ -81,10 +81,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 
 /* Type */
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 12px;
-  letter-spacing: 0.16em;
+  font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--orange);
   margin-bottom: 16px;
   display: inline-flex; align-items: center; gap: 10px;
@@ -220,6 +221,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .avatar { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 700; color: #0a0a0b; background: linear-gradient(135deg, var(--orange-2), var(--orange-3)); flex: none; }
 .avatar--lg { width: 64px; height: 64px; font-size: 20px; border-radius: 16px; }
 .avatar--muted { background: var(--surface-2); color: var(--text-2); border: 1px solid var(--line-2); }
+.avatar--photo { object-fit: cover; background: var(--surface-2); }
+.cite { font-size: 0.45em; font-weight: 600; vertical-align: super; line-height: 0; margin-left: 2px; }
+.cite a { color: inherit; text-decoration: none; }
+.cite a:hover { text-decoration: underline; }
 .mock__code { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.7; color: var(--text-2); white-space: pre; overflow: hidden; }
 .mock__code .k { color: var(--orange-2); } .mock__code .c { color: var(--text-3); } .mock__code .s { color: var(--green); }
 .mock__split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -281,6 +286,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 
 /* Pricing */
 .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.tiers--2 { grid-template-columns: repeat(2, 1fr); max-width: 720px; }
+.tiers--3 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 1040px) { .tiers { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .tiers { grid-template-columns: 1fr; } }
 .tier { display: flex; flex-direction: column; gap: 18px; }
@@ -355,6 +362,12 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .video__play { display: inline-flex; align-items: center; gap: 12px; padding: 12px 20px 12px 12px; border-radius: 999px; background: rgba(10,10,11,0.8); border: 1px solid var(--line-2); font-weight: 600; }
 .video__play i { width: 40px; height: 40px; border-radius: 50%; background: var(--orange); display: grid; place-items: center; color: #0a0a0b; }
+.video--el { display: block; width: 100%; height: auto; object-fit: cover; }
+.shot { margin: 0; max-width: 800px; }
+.shot img { width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line-2); background: var(--bg-2); }
+.video__lite { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.video__lite img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video__lite .video__play { position: relative; }
 .graph { width: 100%; height: auto; }
 .graph .n { fill: var(--surface-2); stroke: var(--line-2); }
 .graph .n--hot { fill: var(--orange); stroke: var(--orange-2); }
@@ -375,3 +388,43 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 
 /* Section labels (small caps) */
 .label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2); }
+
+/* ------------------------------------------------------------------ *
+ * Touch targets under 768px.
+ * WCAG 2.5.8 asks for 24px; Apple and Google both ask for ~44px. These
+ * rules buy the height with padding and min-height only — no font-size
+ * changes — so nothing reflows. Inline links inside running prose are
+ * deliberately left alone: they are exempt, and padding them would
+ * break line boxes mid-sentence.
+ * ------------------------------------------------------------------ */
+@media (max-width: 767px) {
+  .footer a,
+  .footer__legal a {
+    min-height: 44px;
+    min-width: 44px;          /* short labels like "FAQ" were 28px wide */
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer h4 { margin-bottom: 6px; }
+
+  .brand { min-height: 44px; align-items: center; }
+
+  .nav__burger { width: 44px; height: 44px; min-width: 44px; flex: none; }  /* flex parent was shrinking it to 39px */
+
+  .nav__cta .btn--sm,
+  .nav__cta .btn { min-height: 44px; display: inline-flex; align-items: center; }
+
+  .mnav a,
+  .mnav button,
+  .mnav summary { min-height: 44px; display: flex; align-items: center; }
+
+  .faq summary { min-height: 44px; }
+
+  /* Currency toggle on /pricing */
+  .toggle button { min-height: 44px; padding-inline: 16px; }
+
+  /* Hero: get the eyebrow inside 120px of the header. Pages that carry a
+     breadcrumb (product, compare, segments) were sitting at 144–163px. */
+  .hero { padding-block: 56px clamp(40px, 8vw, 64px); }
+  .breadcrumb { margin-bottom: 12px; }
+}

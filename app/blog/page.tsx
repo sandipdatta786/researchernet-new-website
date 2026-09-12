@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function BlogIndex() {
-  const posts = [...blogPosts].sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
+  const posts = [...blogPosts].filter((p) => !p.draft).sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
   const categories = Array.from(new Set(posts.map((p) => p.category)));
   return (
     <>

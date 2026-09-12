@@ -36,6 +36,8 @@ export type BlogPost = {
   author: string;
   authorRole: string;
   content: string; // markdown
+  /** Draft: reachable at its URL for review, but kept out of listings, sitemap, llms.txt and search. */
+  draft?: boolean;
 };
 
 export type LegalDoc = {

@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "verify": "node scripts/run-harness.mjs"
+    "verify": "node scripts/run-harness.mjs",
+    "validate:jsonld": "node scripts/validate-jsonld.mjs"
   },
   "dependencies": {
     "marked": "^15.0.0",
