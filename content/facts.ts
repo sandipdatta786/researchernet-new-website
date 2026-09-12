@@ -165,12 +165,6 @@ export const facts = {
       bio: "10+ years in academia; researcher with 50+ peer-reviewed publications. Owns platform architecture.",
       initials: "SA",
     },
-    {
-      name: "Utathya Aich",
-      role: "Co-Founder & Full-Stack Lead",
-      bio: "3+ years building production-ready AI applications and research systems. Leads engineering.",
-      initials: "UA",
-    },
   ] as Person[],
   advisors: [
     {

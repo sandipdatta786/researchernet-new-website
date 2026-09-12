@@ -52,7 +52,7 @@ export default function AboutPage() {
         <div className="container">
           <Eyebrow>Leadership</Eyebrow>
           <h2 className="h2 mb-4">Founders</h2>
-          <div className="grid grid-4">
+          <div className="grid grid-3">
             {facts.team.map((t) => (
               <div key={t.name} className="card">
                 <div className="avatar avatar--lg mb-3" aria-hidden>{t.initials}</div>
