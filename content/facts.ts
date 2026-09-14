@@ -34,7 +34,7 @@ const pricesAsOf = "2026-09-12";
  * lite embed) or a direct .mp4 (rendered as a <video preload="none">). Empty until the
  * final URL is supplied; while empty the demo block shows the request-a-demo link only.
  */
-const walkthroughUrl = "";
+const walkthroughUrl = "https://www.youtube.com/watch?v=2N99vK-nv38";
 const walkthroughPoster = "/media/walkthrough-poster.jpg";
 
 const pricingTiers: PricingTier[] = [

@@ -58,7 +58,8 @@ export function DemoVideo() {
             allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen />
         ) : (
           <button className="video__lite" onClick={() => { setPlay(true); track("demo_play", { video_id: id ?? "" }); }} aria-label="Play the product walkthrough">
-            <Image src={facts.walkthroughPoster} alt="" fill sizes="(max-width: 900px) 100vw, 560px" style={{ objectFit: "cover" }} />
+            {/* YouTube's own thumbnail: the local poster is only needed for the MP4 branch. */}
+            <Image src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" fill sizes="(max-width: 900px) 100vw, 560px" style={{ objectFit: "cover" }} />
             <span className="video__play"><i><Play /></i> Watch the walkthrough</span>
           </button>
         )}

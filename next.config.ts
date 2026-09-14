@@ -34,7 +34,7 @@ const CSP_REPORT_ONLY = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"] },
+  images: { formats: ["image/avif", "image/webp"], remotePatterns: [{ protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" }] },
   async redirects() {
     return APP_PATHS.map((p) => ({
       source: `/${p}`,
