@@ -355,6 +355,9 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .video__play { display: inline-flex; align-items: center; gap: 12px; padding: 12px 20px 12px 12px; border-radius: 999px; background: rgba(10,10,11,0.8); border: 1px solid var(--line-2); font-weight: 600; }
 .video__play i { width: 40px; height: 40px; border-radius: 50%; background: var(--orange); display: grid; place-items: center; color: #0a0a0b; }
+.video__lite { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.video__lite img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video__lite .video__play { position: relative; }
 .graph { width: 100%; height: auto; }
 .graph .n { fill: var(--surface-2); stroke: var(--line-2); }
 .graph .n--hot { fill: var(--orange); stroke: var(--orange-2); }
