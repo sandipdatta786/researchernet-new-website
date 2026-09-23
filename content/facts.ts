@@ -133,7 +133,7 @@ const teamList: Person[] = [
     {
       name: "Sandip Datta",
       role: "Co-Founder & Director",
-      bio: "27+ years at TCS, IBM and EY, where he founded a Generative AI practice. IBM patent holder. Dean of Innovation & Entrepreneurship, SVIST. Founder & CEO, AIMTECH Dynamics.",
+      bio: "27+ years across TCS, IBM and EY. Founded EYnGen, EY's Generative AI practice, now 500+ practitioners, and built TCS's China Oracle centre of excellence to 200+ people. IBM patent holder and Certified Independent Director. Author of AI Mastery for All and of Operation Sonar Bangla 2026–2031, a benchmarked industrial policy framework for West Bengal. Dean of Innovation & Entrepreneurship, SVIST. Founder & CEO, AIMTECH Dynamics.",
       initials: "SD",
       slug: "sandip-datta",
       email: "sandip@researchernet.com",
