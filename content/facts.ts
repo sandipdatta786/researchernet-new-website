@@ -128,7 +128,7 @@ const teamList: Person[] = [
       initials: "AA",
       slug: "asfak-ali",
       email: "asfak@researchernet.com",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/asfakali/",
     },
     {
       name: "Sandip Datta",
@@ -137,7 +137,7 @@ const teamList: Person[] = [
       initials: "SD",
       slug: "sandip-datta",
       email: "sandip@researchernet.com",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/sadatta/",
     },
     {
       name: "Dr. Suvojit Acharjee",
@@ -145,7 +145,7 @@ const teamList: Person[] = [
       bio: "10+ years in academia; researcher with 50+ peer-reviewed publications. Owns platform architecture.",
       initials: "SA",
       slug: "suvojit-acharjee",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/suvojit-acharjee/",
     },
     {
       name: "Dr. Nandan Gupta",

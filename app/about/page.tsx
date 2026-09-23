@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 
 const personJsonLd = facts.team.map((t) => ({
   "@context": "https://schema.org", "@type": "Person", name: t.name, jobTitle: t.role, worksFor: { "@id": `${SITE_URL}/#organization` }, url: `${SITE_URL}/about`,
+  ...(t.linkedin ? { sameAs: [t.linkedin] } : {}),
 }));
 
 /** Photo slot: /public/team/<slug>.jpg. Missing files fall back to the neutral initials avatar. */
@@ -77,8 +78,7 @@ export default function AboutPage() {
                   <h3 className="h4">{t.name}</h3>
                   <div className="accent small mt-1">{t.role}</div>
                   <p className="small mt-2">{t.bio}</p>
-                  {t.email && <a className="small dim" href={`mailto:${t.email}`}>{t.email}</a>}
-                  {t.linkedin && <a className="small dim" href={t.linkedin} rel="noopener" target="_blank">LinkedIn</a>}
+                  {t.linkedin && <a className="small accent mt-2" style={{ display: "inline-block" }} href={t.linkedin} rel="noopener" target="_blank">LinkedIn →</a>}
                 </div>
               );
             })}
