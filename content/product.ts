@@ -18,7 +18,7 @@ export const engines: Engine[] = [
   { id: "funding", name: "Funding Engine", short: "Grant alerts matched to your profile, commercialisation readiness and industry connections.", icon: "coins", live: ["Grant alerts", "Commercialisation readiness", "Industry connections"], href: "/product/fund-and-commercialise" },
   { id: "integrity", name: "Integrity & Privacy", short: "Encryption at rest and in transit, role-based access control and privacy-respecting AI.", icon: "shield", live: ["Encryption at rest & in transit", "Role-based access control", "On-premise option"], href: "/product/security" },
   { id: "network", name: "Researcher Network", short: "Profiles imported from Google Scholar and ORCID, a research feed, following and community.", icon: "network", live: ["Researcher profiles", "Research feed & following", "One-click profile import"], href: "/product/collaborate" },
-  { id: "conferences", name: "Conference & Event Manager", short: "Run the whole conference: a published website, call for papers, double-blind review, registration and the event day itself. In development.", icon: "calendar", live: [], href: "/product/conferences" },
+  { id: "conferences", name: "Conference & Event Manager", short: "Run the whole conference: a published website, call for papers, double-blind review, registration and the event day itself.", icon: "calendar", live: ["Conference website builder", "Double-blind review", "Registration and event day"], href: "/product/conferences" },
 ];
 
 export type ProductPage = {
@@ -187,13 +187,13 @@ export const productPages: ProductPage[] = [
     title: "Run the conference,",
     titleAccent: "not the spreadsheets.",
     metaTitle: "Conference Management Software for Universities and Research Institutes",
-    description: "One platform for a conference: published website, call for papers, double-blind review with reviewer matching, registration and event-day operations. In development.",
-    lead: "A conference is four systems pretending to be one: a website, a submission and review process, a registration desk and a day of on-ground logistics. Institutions usually buy or improvise all four separately. The Conference & Event Manager brings them into the workspace your researchers already use — and none of it is live yet.",
+    description: "One platform for a conference: published website, call for papers, double-blind review with reviewer matching, registration and event-day operations.",
+    lead: "A conference is four systems pretending to be one: a website, a submission and review process, a registration desk and a day of on-ground logistics. Institutions usually buy or improvise all four separately. The Conference & Event Manager runs all four in the workspace your researchers already use.",
     sections: [
       {
-        heading: "Status: in development",
-        body: "Nothing on this page has shipped. It is published so institutions running a conference in the next cycle can tell us what they need while it is still being built, and so nobody mistakes it for something they can buy today. We never present roadmap features as shipped.",
-        bullets: ["No component is generally available", "Design partners are being taken now", "Sign-in uses existing ResearcherNet credentials — no separate account"],
+        heading: "Live today",
+        body: "All four stages are in production: the conference website builder, the call for papers and double-blind review process, registration and payments, and event-day operations. Organisers sign in with their existing ResearcherNet credentials, so there is no separate account to create or administer.",
+        bullets: ["Website builder with custom domains", "Double-blind review and reviewer matching", "Registration, ticketing and payments", "Check-in, badges, volunteers and meal passes"],
       },
       {
         heading: "The conference website",
@@ -228,10 +228,10 @@ export const productPages: ProductPage[] = [
     ],
     mock: "conference",
     faqs: [
-      { q: "Can we use this for our conference next year?", a: "Not yet as a finished product. Every capability on this page is in development. We are taking design partners now: an institution with a dated conference and a named organiser, who is willing to shape the fields and the workflow rather than receive them finished." },
-      { q: "Is the reviewer matching the same engine as collaborator matching?", a: "It is the same idea applied to a different problem — ranking people by the semantic similarity of their expertise to a piece of work. Collaborator matching is live on the platform today. Reviewer matching for conferences is in development." },
-      { q: "Do attendees and reviewers need a ResearcherNet account?", a: "Organisers sign in with their existing ResearcherNet credentials, with no separate account. Access for external authors, reviewers and attendees is part of what is being designed with pilot conferences." },
-      { q: "Can the conference run on our own domain?", a: "That is the intent: a default web address for every conference, with an optional custom domain so the event runs under the institution's own name. In development along with the rest of the website builder." },
+      { q: "Can we use this for our conference next year?", a: "Yes. The conference website builder, call for papers, double-blind review, registration and event-day operations are all in production. Tell us the dates and the expected scale and we will scope it with you." },
+      { q: "Is the reviewer matching the same engine as collaborator matching?", a: "It is the same idea applied to a different problem — ranking people by the semantic similarity of their expertise to a piece of work, while respecting conflicts of interest. Collaborator matching and conference reviewer matching are both live." },
+      { q: "Do attendees and reviewers need a ResearcherNet account?", a: "Organisers sign in with their existing ResearcherNet credentials, with no separate account. Authors, reviewers and attendees take part through the conference site itself." },
+      { q: "Can the conference run on our own domain?", a: "Yes. Every conference gets a default web address, and organisers can connect a custom domain so the event runs under the institution's own name." },
     ],
     cta: { label: "Talk to us about a conference", href: "/contact?topic=pilot" },
     crossLinks: [
@@ -249,13 +249,12 @@ export const productPages: ProductPage[] = [
     description: "An honest view of ResearcherNet's product roadmap — which capabilities are live today and which are in development, without dates we can't keep.",
     lead: "We publish only what is live as a feature, and everything else here. Roadmap items are in development; we do not promise dates.",
     sections: [
-      { heading: "Live today", body: `Semantic search across ${facts.corpus} papers · Chat with Paper · research gap analysis and systematic-review support · publication navigator · collaborator matching on the research knowledge graph · profiles with Google Scholar / ORCID / ResearchGate import · feed, chat and HD video meetings · lab spaces and projects · collaborative LaTeX editor with version control · LaTeX ↔ Word conversion · multi-LLM orchestration · grant alerts · commercialisation readiness and industry connections · SDG impact mapping · encryption, role-based access and on-premise option.` },
+      { heading: "Live today", body: `Semantic search across ${facts.corpus} papers · Chat with Paper · research gap analysis and systematic-review support · publication navigator · collaborator matching on the research knowledge graph · profiles with Google Scholar / ORCID / ResearchGate import · feed, chat and HD video meetings · lab spaces and projects · collaborative LaTeX editor with version control · LaTeX ↔ Word conversion · multi-LLM orchestration · grant alerts · commercialisation readiness and industry connections · SDG impact mapping · encryption, role-based access and on-premise option · conference and event manager: website builder with custom domains, call for papers, double-blind review with reviewer matching, registration and payments, check-in, badges, volunteers and meal passes.` },
       { heading: "Research Ledger — provenance and verification", body: "Contribution and model ledger on every project · verification step before a result is marked accepted · provenance export for journals, funders and IP cells · shaped with pilot departments." },
       { heading: "In development — SSO and SOC 2 preparation", body: "SSO and SOC 2 preparation." },
       { heading: "In development — integrity & analytics", body: "Multilingual plagiarism and AI-content detection · institutional research-output dashboards." },
       { heading: "In development — advanced AI engines", body: "Autonomous hypothesis generator · outcome prediction (feasibility and expected impact of a proposed project) · interdisciplinary discovery engine." },
       { heading: "In development — management & platform", body: "Smart deadline tracker." },
-      { heading: "In development — Conference & Event Manager", body: "Conference website builder with custom domains · call for papers · double-blind review with reviewer matching · registration, ticketing and payments · check-in, badges, volunteers and meal passes · dashboards and audit logs. See /product/conferences." },
       { heading: "Longer term", collapsed: true, body: "Dataset marketplace · LMS and HRIS connectors · multilingual interface · scientific investment intelligence for funders · no-code statistical analysis · scientific visualisation suite." },
     ],
     mock: "roadmap",

@@ -205,19 +205,19 @@ export function RoadmapMock() {
 
 export function ConferenceMock() {
   const rows: [string, string, string][] = [
-    ["Conference site", "template · branding · custom domain", "in development"],
-    ["Call for papers", "tracks · abstracts · deadlines", "in development"],
-    ["Double-blind review", "anonymised at the storage layer", "in development"],
-    ["Reviewer matching", "expertise ↔ paper, conflict-aware", "in development"],
-    ["Registration", "tickets · promo codes · invoices", "in development"],
-    ["Event day", "check-in · badges · meals · volunteers", "in development"],
+    ["Conference site", "template · branding · custom domain", "live"],
+    ["Call for papers", "tracks · abstracts · deadlines", "live"],
+    ["Double-blind review", "anonymised at the storage layer", "live"],
+    ["Reviewer matching", "expertise ↔ paper, conflict-aware", "live"],
+    ["Registration", "tickets · promo codes · invoices", "live"],
+    ["Event day", "check-in · badges · meals · volunteers", "live"],
   ];
   return (
     <div className="mock" aria-hidden>
-      <Bar label="conference manager · in development" />
+      <Bar label="conference manager · live" />
       <div className="mock__body">
         {rows.map(([t, s2, tag]) => (
-          <div key={t} className="mock__row"><div><b>{t}</b><small>{s2}</small></div><span className="mock__tag">{tag}</span></div>
+          <div key={t} className="mock__row"><div><b>{t}</b><small>{s2}</small></div><span className="mock__tag mock__tag--hot">{tag}</span></div>
         ))}
       </div>
     </div>
