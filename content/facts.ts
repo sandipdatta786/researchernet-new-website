@@ -124,7 +124,7 @@ const teamList: Person[] = [
     {
       name: "Dr. Asfak Ali",
       role: "Founder & CEO",
-      bio: "PhD, Jadavpur University. Director, Deep Duo Foundation. Leads product and research science.",
+      bio: "PhD in Engineering from Jadavpur University, where he is guest faculty in Electronics & Telecommunication Engineering. 45+ peer-reviewed papers in computer vision, medical imaging and signal processing, in journals including Pattern Recognition and Scientific Reports, and co-inventor on filed Indian patent applications. Previously a research intern at the Cognitive Analytics Research Lab, Ulster University. Director, Deep Duo Foundation. Leads product and research science.",
       initials: "AA",
       slug: "asfak-ali",
       email: "asfak@researchernet.com",
