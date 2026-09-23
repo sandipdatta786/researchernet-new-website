@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { facts } from "@/content/facts";
@@ -12,6 +14,10 @@ export const metadata: Metadata = pageMetadata({
   description: "A 90-day provenance and integrity pilot for one department: record what AI contributed, verify results, and export an audit-ready provenance report.",
   path: "/pilot/provenance",
 });
+
+/** A download is only offered when the file actually exists in /public. */
+const hasDoc = (rel: string) => fs.existsSync(path.join(process.cwd(), "public", rel));
+const OFFER_PDF = "/docs/ResearcherNet_Provenance_Pilot_Offer.pdf";
 
 /** Same tag the roadmap uses for capabilities that are not yet live. */
 const Dev = () => <span className="mock__tag">in development</span>;
@@ -53,7 +59,7 @@ export default function ProvenancePilotPage() {
             <p className="lead mt-3 maxw-md">AI tools now draft hypotheses, proofs, code and manuscripts. Journals, funders and patent examiners are beginning to ask what a model contributed, whose idea it was, and whether unpublished work was exposed to a vendor. No institution can answer that from a record today.</p>
             <div className="row mt-4">
               <Link href="#request" className="btn btn--primary btn--lg">Request the pilot</Link>
-              <a href="/docs/ResearcherNet_Provenance_Pilot_Offer.pdf" className="btn btn--secondary btn--lg" download>Download the pilot offer (PDF)</a>
+              {hasDoc(OFFER_PDF) && <a href={OFFER_PDF} className="btn btn--secondary btn--lg" download>Download the pilot offer (PDF)</a>}
             </div>
           </div>
         </div>

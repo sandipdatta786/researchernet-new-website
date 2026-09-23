@@ -1,6 +1,9 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { segments } from "@/content/product";
+import { publishedCaseStudies } from "@/content/customers";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumb, Eyebrow, Faq, CtaBand, InstitutionStrip, RecognitionStrip, Testimonials } from "@/components/Blocks";
@@ -13,6 +16,10 @@ export const metadata: Metadata = pageMetadata({
   description: s.description,
   path: "/for/institutions",
 });
+
+/** A download is only offered when the file actually exists in /public. */
+const hasDoc = (rel: string) => fs.existsSync(path.join(process.cwd(), "public", rel));
+const MOU_PDF = "/docs/ResearcherNet_MOU_Outline.pdf";
 
 /** Same tag the roadmap uses for capabilities that are not yet live. */
 const Dev = () => <span className="mock__tag">in development</span>;
@@ -136,7 +143,9 @@ export default function ForInstitutionsPage() {
       <section className="section--tight section--line">
         <div className="container">
           <InstitutionStrip label="Institutions represented on the platform" />
-          <p className="small dim mt-3 center"><Link href="/customers" className="accent">Read the institutional case studies →</Link></p>
+          {publishedCaseStudies().length > 0 && (
+            <p className="small dim mt-3 center"><Link href="/customers" className="accent">Read the institutional case studies →</Link></p>
+          )}
         </div>
       </section>
 
@@ -163,7 +172,7 @@ export default function ForInstitutionsPage() {
           <CtaBand
             location="segment-institutions-bottom"
             primary={{ label: "Book an institutional pilot", href: "/institutional-pilot" }}
-            secondary={{ label: "Download the MOU outline (PDF)", href: "/docs/ResearcherNet_MOU_Outline.pdf" }}
+            secondary={hasDoc(MOU_PDF) ? { label: "Download the MOU outline (PDF)", href: MOU_PDF } : { label: "How an institutional pilot runs", href: "/institutional-pilot" }}
           />
         </div>
       </section>
