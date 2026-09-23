@@ -221,7 +221,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .avatar { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 700; color: #0a0a0b; background: linear-gradient(135deg, var(--orange-2), var(--orange-3)); flex: none; }
 .avatar--lg { width: 64px; height: 64px; font-size: 20px; border-radius: 16px; }
 .avatar--muted { background: var(--surface-2); color: var(--text-2); border: 1px solid var(--line-2); }
-.avatar--photo { object-fit: cover; background: var(--surface-2); }
+.avatar--photo { object-fit: cover; object-position: center top; background: var(--surface-2); }
 .cite { font-size: 0.45em; font-weight: 600; vertical-align: super; line-height: 0; margin-left: 2px; }
 .cite a { color: inherit; text-decoration: none; }
 .cite a:hover { text-decoration: underline; }

@@ -21,8 +21,11 @@ const personJsonLd = facts.team.map((t) => ({
 
 /** Photo slot: /public/team/<slug>.jpg. Missing files fall back to the neutral initials avatar. */
 const teamPhoto = (slug: string) => {
-  const rel = `/team/${slug}.jpg`;
-  return fs.existsSync(path.join(process.cwd(), "public", rel)) ? rel : null;
+  for (const ext of ["webp", "jpg", "jpeg", "png"]) {
+    const rel = `/team/${slug}.${ext}`;
+    if (fs.existsSync(path.join(process.cwd(), "public", rel))) return rel;
+  }
+  return null;
 };
 
 export default function AboutPage() {
