@@ -203,4 +203,25 @@ export function RoadmapMock() {
   );
 }
 
-export const mocks = { search: SearchMock, match: MatchMock, latex: LatexMock, funding: FundingMock, tech: TechMock, security: SecurityMock, roadmap: RoadmapMock } as const;
+export function ConferenceMock() {
+  const rows: [string, string, string][] = [
+    ["Conference site", "template · branding · custom domain", "in development"],
+    ["Call for papers", "tracks · abstracts · deadlines", "in development"],
+    ["Double-blind review", "anonymised at the storage layer", "in development"],
+    ["Reviewer matching", "expertise ↔ paper, conflict-aware", "in development"],
+    ["Registration", "tickets · promo codes · invoices", "in development"],
+    ["Event day", "check-in · badges · meals · volunteers", "in development"],
+  ];
+  return (
+    <div className="mock" aria-hidden>
+      <Bar label="conference manager · in development" />
+      <div className="mock__body">
+        {rows.map(([t, s2, tag]) => (
+          <div key={t} className="mock__row"><div><b>{t}</b><small>{s2}</small></div><span className="mock__tag">{tag}</span></div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export const mocks = { search: SearchMock, match: MatchMock, latex: LatexMock, funding: FundingMock, tech: TechMock, security: SecurityMock, roadmap: RoadmapMock, conference: ConferenceMock } as const;

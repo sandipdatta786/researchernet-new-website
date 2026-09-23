@@ -24,9 +24,10 @@ export const Mail = ({ size, ...p }: P) => <svg {...base(size)} {...p}><rect x="
 export const Pin = ({ size, ...p }: P) => <svg {...base(size)} {...p}><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11Z" /><circle cx="12" cy="10" r="2" /></svg>;
 export const Sparkle = ({ size, ...p }: P) => <svg {...base(size)} {...p}><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.5 6.5l2.5 2.5M15 15l2.5 2.5M6.5 17.5 9 15M15 9l2.5-2.5" /></svg>;
 export const Globe = ({ size, ...p }: P) => <svg {...base(size)} {...p}><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" /></svg>;
+export const Calendar = ({ size, ...p }: P) => <svg {...base(size)} {...p}><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 11h18M8 15h3M8 18h6" /></svg>;
 export const Award = ({ size, ...p }: P) => <svg {...base(size)} {...p}><circle cx="12" cy="9" r="5" /><path d="m8.5 13.5-1.5 7 5-2.5 5 2.5-1.5-7" /></svg>;
 export const File = ({ size, ...p }: P) => <svg {...base(size)} {...p}><path d="M6 3h8l4 4v14H6V3Z" /><path d="M14 3v4h4M9 12h6M9 16h6" /></svg>;
 
 export const engineIcon = {
-  search: Search, users: Users, edit: Edit, coins: Coins, shield: Shield, network: Network,
+  search: Search, users: Users, edit: Edit, coins: Coins, shield: Shield, network: Network, calendar: Calendar,
 } as const;

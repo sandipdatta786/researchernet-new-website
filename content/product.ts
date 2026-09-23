@@ -5,7 +5,7 @@ export type Engine = {
   id: string;
   name: string;
   short: string;
-  icon: "search" | "users" | "edit" | "coins" | "shield" | "network";
+  icon: "search" | "users" | "edit" | "coins" | "shield" | "network" | "calendar";
   live: string[]; // capabilities live today
   href: string;
 };
@@ -18,6 +18,7 @@ export const engines: Engine[] = [
   { id: "funding", name: "Funding Engine", short: "Grant alerts matched to your profile, commercialisation readiness and industry connections.", icon: "coins", live: ["Grant alerts", "Commercialisation readiness", "Industry connections"], href: "/product/fund-and-commercialise" },
   { id: "integrity", name: "Integrity & Privacy", short: "Encryption at rest and in transit, role-based access control and privacy-respecting AI.", icon: "shield", live: ["Encryption at rest & in transit", "Role-based access control", "On-premise option"], href: "/product/security" },
   { id: "network", name: "Researcher Network", short: "Profiles imported from Google Scholar and ORCID, a research feed, following and community.", icon: "network", live: ["Researcher profiles", "Research feed & following", "One-click profile import"], href: "/product/collaborate" },
+  { id: "conferences", name: "Conference & Event Manager", short: "Run the whole conference: a published website, call for papers, double-blind review, registration and the event day itself. In development.", icon: "calendar", live: [], href: "/product/conferences" },
 ];
 
 export type ProductPage = {
@@ -29,7 +30,7 @@ export type ProductPage = {
   description: string; // meta
   lead: string;
   sections: { heading: string; body: string; bullets?: string[]; collapsed?: boolean }[];
-  mock: "search" | "match" | "latex" | "funding" | "tech" | "security" | "roadmap";
+  mock: "search" | "match" | "latex" | "funding" | "tech" | "security" | "roadmap" | "conference";
   screenshot?: { file: string; alt: string };
   metaTitle?: string; // overrides the hero-derived <title> where a search-first phrasing is wanted
   crossLinks?: { label: string; href: string }[];
@@ -180,6 +181,66 @@ export const productPages: ProductPage[] = [
     related: ["technology", "fund-and-commercialise"],
   },
   {
+    slug: "conferences",
+    nav: "Conferences & events",
+    eyebrow: "Conference & Event Manager",
+    title: "Run the conference,",
+    titleAccent: "not the spreadsheets.",
+    metaTitle: "Conference Management Software for Universities and Research Institutes",
+    description: "One platform for a conference: published website, call for papers, double-blind review with reviewer matching, registration and event-day operations. In development.",
+    lead: "A conference is four systems pretending to be one: a website, a submission and review process, a registration desk and a day of on-ground logistics. Institutions usually buy or improvise all four separately. The Conference & Event Manager brings them into the workspace your researchers already use — and none of it is live yet.",
+    sections: [
+      {
+        heading: "Status: in development",
+        body: "Nothing on this page has shipped. It is published so institutions running a conference in the next cycle can tell us what they need while it is still being built, and so nobody mistakes it for something they can buy today. We never present roadmap features as shipped.",
+        bullets: ["No component is generally available", "Design partners are being taken now", "Sign-in uses existing ResearcherNet credentials — no separate account"],
+      },
+      {
+        heading: "The conference website",
+        body: "Create a conference site from a template library, preview before choosing, then customise branding, content sections and layout. Publish it at its own web address, or connect a custom domain so the conference runs under the institution's own name. Conference details, dates, venue and contacts are edited in one place, alongside speaker profiles, sponsor listings and committee information.",
+        bullets: ["Template library with preview before selection", "Branding, content and layout customisation", "Custom domain support", "Speakers, sponsors and committees"],
+      },
+      {
+        heading: "Call for papers and double-blind review",
+        body: "Authors submit a title, abstract, track and document, then follow their submission through to a decision. Review is double-blind and enforced where it actually matters — at the storage layer, so files are separated from identifying metadata rather than relying on reviewers to look away. Papers move through an explicit lifecycle from draft to submitted, screened, under review, revision, accepted and final approval, with version history at each step.",
+        bullets: ["Track selection and document upload", "Anonymity enforced at the storage layer", "Structured reviewer rubrics", "Revision and camera-ready versions"],
+      },
+      {
+        heading: "Reviewer matching and pre-flight checks",
+        body: "Reviewer assignment is the same problem as collaborator matching, which is the part of ResearcherNet that is already live: rank people by the semantic similarity of their expertise to the work in front of them, while respecting conflicts of interest. Submitted files are validated automatically by background workers before they ever reach a reviewer, so formatting problems surface at submission rather than during review.",
+        bullets: ["Semantic matching of expertise to paper", "Conflict-of-interest aware assignment", "Automated format checks on submission"],
+      },
+      {
+        heading: "Registration, ticketing and payments",
+        body: "Registration forms are built per conference, with ticket tiers, promo codes and add-ons. Payments are handled natively, with Indian and international gateways, and the registration record tracks a delegate from draft through payment to check-in.",
+        bullets: ["Custom registration forms per event", "Ticket tiers, promo codes and add-ons", "Indian and international payment gateways"],
+      },
+      {
+        heading: "The day itself",
+        body: "The part most conference software ignores. Check-in and session attendance are tracked, badges are generated digitally or printed, volunteers are assigned tasks and shifts, meal passes and dietary preferences are handled with the caterer in mind, and registration and helpdesk counters are monitored so queues can be rebalanced while the event is still running. Targeted notifications reach a specific group — volunteers, session chairs, VIPs — rather than everyone.",
+        bullets: ["Check-in and session attendance", "Digital and printed badges", "Volunteer tasks and shifts", "Meal passes and dietary preferences", "Counter and helpdesk load monitoring"],
+      },
+      {
+        heading: "Roles, reporting and audit",
+        body: "One person is often an author, a reviewer and a session chair at the same conference. Roles are assigned per person per event rather than per account, and access is role-based throughout. Organisers get live dashboards for registration, attendance and operations, exportable reports for stakeholders and post-event analysis, and a complete audit trail of who changed what.",
+        bullets: ["A person can hold several roles at one event", "Live registration and attendance dashboards", "Exportable reports", "Full audit log"],
+      },
+    ],
+    mock: "conference",
+    faqs: [
+      { q: "Can we use this for our conference next year?", a: "Not yet as a finished product. Every capability on this page is in development. We are taking design partners now: an institution with a dated conference and a named organiser, who is willing to shape the fields and the workflow rather than receive them finished." },
+      { q: "Is the reviewer matching the same engine as collaborator matching?", a: "It is the same idea applied to a different problem — ranking people by the semantic similarity of their expertise to a piece of work. Collaborator matching is live on the platform today. Reviewer matching for conferences is in development." },
+      { q: "Do attendees and reviewers need a ResearcherNet account?", a: "Organisers sign in with their existing ResearcherNet credentials, with no separate account. Access for external authors, reviewers and attendees is part of what is being designed with pilot conferences." },
+      { q: "Can the conference run on our own domain?", a: "That is the intent: a default web address for every conference, with an optional custom domain so the event runs under the institution's own name. In development along with the rest of the website builder." },
+    ],
+    cta: { label: "Talk to us about a conference", href: "/contact?topic=pilot" },
+    crossLinks: [
+      { label: "See the institutional view", href: "/for/institutions" },
+      { label: "What else is in development", href: "/product/roadmap" },
+    ],
+    related: ["collaborate", "roadmap", "security"],
+  },
+  {
     slug: "roadmap",
     nav: "Roadmap",
     eyebrow: "What's next",
@@ -194,7 +255,8 @@ export const productPages: ProductPage[] = [
       { heading: "In development — integrity & analytics", body: "Multilingual plagiarism and AI-content detection · institutional research-output dashboards." },
       { heading: "In development — advanced AI engines", body: "Autonomous hypothesis generator · outcome prediction (feasibility and expected impact of a proposed project) · interdisciplinary discovery engine." },
       { heading: "In development — management & platform", body: "Smart deadline tracker." },
-      { heading: "Longer term", collapsed: true, body: "End-to-end conference manager (website builder, abstract management, payments) · dataset marketplace · LMS and HRIS connectors · multilingual interface · scientific investment intelligence for funders · no-code statistical analysis · scientific visualisation suite." },
+      { heading: "In development — Conference & Event Manager", body: "Conference website builder with custom domains · call for papers · double-blind review with reviewer matching · registration, ticketing and payments · check-in, badges, volunteers and meal passes · dashboards and audit logs. See /product/conferences." },
+      { heading: "Longer term", collapsed: true, body: "Dataset marketplace · LMS and HRIS connectors · multilingual interface · scientific investment intelligence for funders · no-code statistical analysis · scientific visualisation suite." },
     ],
     mock: "roadmap",
     faqs: [

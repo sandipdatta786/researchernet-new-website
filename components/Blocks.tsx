@@ -84,9 +84,14 @@ export function EngineGrid() {
             <div className="card-icon"><Icon /></div>
             <h3 className="h3">{e.name}</h3>
             <p className="small">{e.short}</p>
-            <ul className="list-check mt-3">
-              {e.live.map((l) => <li key={l}><Check /><span>{l}</span></li>)}
-            </ul>
+            {e.live.length > 0 ? (
+              <ul className="list-check mt-3">
+                {e.live.map((l) => <li key={l}><Check /><span>{l}</span></li>)}
+              </ul>
+            ) : (
+              /* An engine with nothing live says so, rather than showing an empty list. */
+              <div className="mt-3"><span className="mock__tag">in development</span></div>
+            )}
             <div className="row mt-3 small accent" style={{ fontWeight: 600 }}>Explore <ArrowRight size={14} /></div>
           </Link>
         );
