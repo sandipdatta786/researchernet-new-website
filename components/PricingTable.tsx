@@ -15,11 +15,11 @@ function Feature({ text }: { text: string }) {
 }
 
 export function PricingTable({ compact }: { compact?: boolean }) {
-  const [inr, setInr] = useState(false);
+  const [inr, setInr] = useState(true);
   // Default from the cookie middleware set. Runs after hydration, so the static
   // HTML stays identical for every visitor and only the toggle state changes.
   useEffect(() => {
-    const match = document.cookie.match(/(?:^|;\s*)currency=(INR|USD)/);
+    const match = document.cookie.match(/(?:^|;\s*)currency_pref=(INR|USD)/);
     if (match) setInr(match[1] === "INR");
   }, []);
   useEffect(() => {
@@ -29,19 +29,29 @@ export function PricingTable({ compact }: { compact?: boolean }) {
   }, [compact, inr]);
   const visible = facts.pricing.tiers.filter((t) => !t.hidden);
   const hiddenNames = facts.pricing.tiers.filter((t) => t.hidden).map((t) => t.name);
-  const fmt = (usd: number | null) => {
-    if (usd === null) return "Custom";
-    if (usd === 0) return inr ? "₹0" : "$0";
-    return inr ? `₹${(usd * facts.pricing.inrRate).toLocaleString("en-IN")}` : `$${usd}`;
+  /** ₹8,00,000 reads badly on a card; lakhs are how Indian institutions quote budgets. */
+  const rupees = (n: number) => (n >= 100000 ? `₹${(n / 100000).toLocaleString("en-IN", { maximumFractionDigits: 1 })} L` : `₹${n.toLocaleString("en-IN")}`);
+  const dollars = (n: number) => `$${Math.round(n / facts.pricing.inrRate).toLocaleString("en-US")}`;
+  const fmt = (t: { inr: number | null; inrMax?: number }) => {
+    if (t.inr === null) return "Custom";
+    if (t.inr === 0) return inr ? "₹0" : "$0";
+    const one = inr ? rupees : dollars;
+    // A range keeps one currency symbol: "₹8–12 L", not "₹8 L–₹12 L".
+    if (t.inrMax) {
+      return inr
+        ? `₹${(t.inr / 100000).toLocaleString("en-IN")}–${(t.inrMax / 100000).toLocaleString("en-IN")} L`
+        : `${dollars(t.inr)}–${dollars(t.inrMax)}`;
+    }
+    return one(t.inr);
   };
   return (
     <div>
       <div className="row between mb-3">
         <div className="toggle" role="group" aria-label="Currency">
-          <button aria-pressed={!inr} onClick={() => { setInr(false); document.cookie = "currency=USD;path=/;max-age=15552000;samesite=lax"; }}>USD</button>
-          <button aria-pressed={inr} onClick={() => { setInr(true); document.cookie = "currency=INR;path=/;max-age=15552000;samesite=lax"; }}>INR</button>
+          <button aria-pressed={inr} onClick={() => { setInr(true); document.cookie = "currency_pref=INR;path=/;max-age=15552000;samesite=lax"; }}>INR</button>
+          <button aria-pressed={!inr} onClick={() => { setInr(false); document.cookie = "currency_pref=USD;path=/;max-age=15552000;samesite=lax"; }}>USD</button>
         </div>
-        <span className="small dim">{inr ? "Indicative INR at ₹" + facts.pricing.inrRate + "/$ · GST extra on Indian invoices" : "Billed monthly · annual plans on request"}</span>
+        <span className="small dim">{inr ? "Billed in INR with a GST invoice" : "Indicative conversion at ₹" + facts.pricing.inrRate + "/$ · billing is in INR"}</span>
       </div>
       <div className={`tiers tiers--${visible.length}`}>
         {visible.map((t) => {
@@ -53,7 +63,7 @@ export function PricingTable({ compact }: { compact?: boolean }) {
                 <div className="row between"><h3 className="h3" style={{ margin: 0 }}>{t.name}</h3>{t.highlight && <span className="pill pill--orange">Most popular</span>}</div>
                 <p className="small mt-1">{t.blurb}</p>
               </div>
-              <div className={t.usd === null ? "price price--custom" : "price"}>{fmt(t.usd)}<small>{t.usd ? "/ mo" : t.usd === 0 ? "forever" : "per institution"}</small></div>
+              <div className={t.inr === null ? "price price--custom" : "price"}>{fmt(t)}<small>{t.inr === 0 ? "forever" : t.period === "per year" ? "/ year" : "/ month"}</small></div>
               {isApp ? (
                 <a href={appSignup} className={cls} onClick={() => track("signup_click", { cta_location: `pricing-${t.id}`, link_url: appSignup })}>{t.cta} <ArrowRight size={16} /></a>
               ) : (

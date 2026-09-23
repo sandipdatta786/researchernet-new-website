@@ -76,8 +76,8 @@ export const softwareJsonLd = () => ({
   description: facts.description,
   publisher: { "@id": `${SITE_URL}/#organization` },
   offers: facts.pricing.tiers
-    .filter((t) => t.usd !== null && !t.hidden)
-    .map((t) => ({ "@type": "Offer", name: t.name, price: String(t.usd), priceCurrency: "USD", availability: "https://schema.org/InStock", category: t.period === "forever" ? "free" : "subscription" })),
+    .filter((t) => t.inr !== null && !t.hidden)
+    .map((t) => ({ "@type": "Offer", name: t.name, price: String(t.inr), priceCurrency: "INR", availability: "https://schema.org/InStock", category: t.period === "forever" ? "free" : "subscription" })),
   featureList: [
     `Semantic search across ${facts.corpus} papers`, "Chat with Paper", "Research gap analysis", "AI collaborator matching",
     "Collaborative LaTeX editor", "HD video meetings", "Grant alerts", "Commercialisation readiness", "SDG impact mapping",
@@ -98,13 +98,13 @@ export const productJsonLd = () => {
       name: `${facts.brand} ${t.name}`,
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/pricing`,
-      category: t.usd === 0 ? "free" : t.usd === null ? "custom" : "subscription",
+      category: t.inr === 0 ? "free" : t.inr === null ? "custom" : "subscription",
     };
-    if (t.usd === null) return [{ ...base, priceSpecification: { "@type": "PriceSpecification", priceCurrency: "INR", valueAddedTaxIncluded: false } }];
-    return [
-      { ...base, price: String(t.usd), priceCurrency: "USD" },
-      { ...base, price: String(t.usd * facts.pricing.inrRate), priceCurrency: "INR" },
-    ];
+    if (t.inr === null) return [{ ...base, priceSpecification: { "@type": "PriceSpecification", priceCurrency: "INR", valueAddedTaxIncluded: false } }];
+    if (t.inrMax) {
+      return [{ ...base, priceSpecification: { "@type": "PriceSpecification", priceCurrency: "INR", minPrice: String(t.inr), maxPrice: String(t.inrMax), valueAddedTaxIncluded: false } }];
+    }
+    return [{ ...base, price: String(t.inr), priceCurrency: "INR" }];
   });
   return {
     "@context": "https://schema.org",

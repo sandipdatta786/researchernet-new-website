@@ -10,7 +10,7 @@ import { facts } from "./facts";
 const VERIFIED = "2026-09-11";
 const VERIFIED_DISPLAY = "11 September 2026";
 
-const RN_PRICING = `ResearcherNet: Free for individuals; Professional and Team plans are coming soon; Institution plans are custom, billed annually in INR with a GST invoice, with a complimentary first year for pilot institutions under an MOU.`;
+const RN_PRICING = `ResearcherNet: Free for individuals; Professional ₹999/month; Team / Lab ₹4,999/month; Institution ₹8–12 lakh a year, billed in INR with a GST invoice, with a complimentary first year for pilot institutions under an MOU.`;
 
 export const compareIndexIntro = `Choosing research software usually means choosing several tools at once: one for finding papers, one for writing, one for talking to co-authors, one for chasing grants. Most of the products on this page are genuinely good at the one thing they were built for, and in some cases they are the better choice for you. These comparisons are meant to help you work that out honestly, not to pretend that every rival is worse at everything.
 
@@ -80,7 +80,7 @@ If you mainly need to read, summarise and paraphrase papers quickly, and you val
       },
       {
         q: "Which one is cheaper?",
-        a: "SciSpace's entry paid tier is about $20/month, credit-based. ResearcherNet's paid individual plans are not on sale yet: today it is free for individuals, with custom institutional licences. Both have free plans, so the honest answer is to try each on a real week of work.",
+        a: "SciSpace's entry paid tier is about $20/month, credit-based. ResearcherNet Professional is ₹999/month, roughly $12, as a flat subscription. Both have free plans, so the honest answer is to try each on a real week of work.",
       },
     ],
     lastVerified: VERIFIED,
@@ -113,7 +113,7 @@ If your job is producing rigorous, auditable systematic reviews, particularly in
       "Collaboration is not a top-tier add-on: matching, profiles, chat, video and lab spaces are included from the free plan upward.",
       "A collaborative LaTeX editor with version control lets the review become the manuscript without leaving the workspace.",
       "Grant alerts, commercialisation readiness and SDG mapping serve the whole project lifecycle, not just the evidence stage.",
-      "Individual use is free today, against Elicit Pro at $49/month, and institutional licences are billed in INR with a GST invoice.",
+      "Professional is ₹999/month, roughly $12, against Elicit Pro at $49/month, and institutional licences are billed in INR with a GST invoice.",
     ],
     rows: [
       { feature: "Paper corpus", us: `${facts.corpus}`, them: "138M+" },
@@ -125,7 +125,7 @@ If your job is producing rigorous, auditable systematic reviews, particularly in
       { feature: "Collaborative LaTeX editor", us: "yes", them: "no" },
       { feature: "Grant alerts and funding discovery", us: "yes", them: "no" },
       { feature: "Commercialisation / industry bridge", us: "yes", them: "no" },
-      { feature: "Entry paid plan", us: "free for individuals; paid plans coming soon", them: "$49/month" },
+      { feature: "Entry paid plan", us: "₹999/month (about $12)", them: "$49/month" },
     ],
     chooseThemIf: [
       "You run formal systematic reviews or meta-analyses and need deep, auditable extraction.",
@@ -149,7 +149,7 @@ If your job is producing rigorous, auditable systematic reviews, particularly in
       },
       {
         q: "Why is ResearcherNet cheaper than Elicit?",
-        a: "The two products are priced for different jobs. Elicit charges for specialist extraction depth; ResearcherNet prices for a broader workspace that includes collaboration, writing and funding tools. Individual use of ResearcherNet is free today against $49/month for Elicit Pro, but depth of extraction may justify Elicit's price for review-heavy teams.",
+        a: "The two products are priced for different jobs. Elicit charges for specialist extraction depth; ResearcherNet prices for a broader workspace that includes collaboration, writing and funding tools. ResearcherNet Professional is ₹999/month, roughly $12, against $49/month for Elicit Pro, but depth of extraction may justify Elicit's price for review-heavy teams.",
       },
     ],
     lastVerified: VERIFIED,
@@ -194,7 +194,7 @@ If you want fast, trustworthy answers to "does the evidence support X?", or you 
       { feature: "Collaborative LaTeX editor", us: "yes", them: "no" },
       { feature: "Grant alerts and funding discovery", us: "yes", them: "no" },
       { feature: "Student discount", us: "free plan", them: "40% off Premium" },
-      { feature: "Entry paid plan", us: "free for individuals; paid plans coming soon", them: "$8.99/month (annual)" },
+      { feature: "Entry paid plan", us: "₹999/month (about $12)", them: "$8.99/month (annual)" },
     ],
     chooseThemIf: [
       "You mostly need quick, evidence-backed answers rather than a full research workflow.",

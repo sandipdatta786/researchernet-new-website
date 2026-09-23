@@ -9,7 +9,7 @@ const env = (v: string | undefined, fallback: string) => (v && v.trim() ? v.trim
 export const SITE_URL = env(process.env.NEXT_PUBLIC_SITE_URL, "https://researchernet.com");
 export const APP_URL = env(process.env.NEXT_PUBLIC_APP_URL, "https://app.researchernet.com");
 
-export type PricingTier = { id: string; name: string; usd: number | null; period: string; blurb: string; features: string[]; cta: string; highlight?: boolean; hidden?: boolean };
+export type PricingTier = { id: string; name: string; inr: number | null; inrMax?: number; period: string; blurb: string; features: string[]; cta: string; highlight?: boolean; hidden?: boolean };
 export type Person = { name: string; role: string; bio: string; initials: string; slug: string; email?: string; linkedin?: string };
 export type Recognition = { id: string; title: string; org: string; short?: string; date: string; kind: string; detail: string; url?: string };
 export type Institution = { name: string; short: string; full?: string };
@@ -41,7 +41,7 @@ const pricingTiers: PricingTier[] = [
       {
         id: "free",
         name: "Free",
-        usd: 0,
+        inr: 0,
         period: "forever",
         blurb: "For individual researchers getting started.",
         features: [
@@ -58,7 +58,7 @@ const pricingTiers: PricingTier[] = [
       {
         id: "pro",
         name: "Professional",
-        usd: 29,
+        inr: 999,
         period: "per month",
         blurb: "For serious researchers who want full AI capacity.",
         features: [
@@ -68,16 +68,15 @@ const pricingTiers: PricingTier[] = [
           "LaTeX ↔ Word conversion",
           "Grant alerts matched to your profile",
           "Role-based access at project level",
+          "GrantOS alerts & drafts (in development)",
           "Priority support",
         ],
         cta: "Start Professional",
-        highlight: true,
-        hidden: true,
       },
       {
         id: "team",
-        name: "Team",
-        usd: 99,
+        name: "Team / Lab",
+        inr: 4999,
         period: "per month",
         blurb: "For labs and research groups working together.",
         features: [
@@ -88,20 +87,23 @@ const pricingTiers: PricingTier[] = [
           "Team analytics & milestone tracking",
           "Onboarding session for your group",
         ],
-        cta: "Start Team",
-        hidden: true,
+        cta: "Start Team / Lab",
+        highlight: true,
       },
       {
         id: "institution",
         name: "Institution",
-        usd: null,
-        period: "custom",
+        inr: 800000,
+        inrMax: 1200000,
+        period: "per year",
         blurb: "For universities, research labs and R&D organisations.",
         features: [
           "Billed annually in INR with GST invoice",
           "Campus-wide or lab-wide licence",
-          "Institutional dashboard & SDG impact mapping",
-          "On-premise deployment option · SSO (in development)",
+          "Campus-wide NAAC / NIRF / SDG dashboards",
+          "On-premise deployment option",
+          "SSO (in development)",
+          "Research Ledger (in development)",
           "Trained campus ambassador programme",
           "Complimentary first year for pilot institutions (MOU)",
           "Dedicated success manager",
@@ -218,8 +220,8 @@ export const facts = {
     inventors: ["Sandip Datta", "Dr. Nandan Gupta", "Dr. Asfak Ali", "Gargi Gupta"],
   },
   pricing: {
-    currencyNote: "Prices in USD; INR billing with GST invoice available for Indian institutions.",
-    inrRate: 84, // display-only approximation for the INR toggle; confirm before launch
+    currencyNote: "Prices in INR, billed with a GST invoice. USD is shown as an indicative conversion only.",
+    inrRate: 84, // INR per USD; display-only, used to show an indicative USD figure beside the real INR price
     tiers: pricingTiers,
   },
   team: teamList,

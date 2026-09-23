@@ -18,7 +18,7 @@ Recognition: ${facts.recognition.map((r) => `${r.title} (${r.org}, ${r.date})`).
 
 Founders: ${facts.team.map((t) => `${t.name} (${t.role})`).join("; ")}.${facts.advisors.length ? ` Advisor: ${facts.advisors.map((a) => a.name).join(", ")}.` : ""}
 
-Pricing: ${facts.pricing.tiers.filter((t) => !t.hidden).map((t) => `${t.name} ${t.usd === null ? "custom" : t.usd === 0 ? "free" : `$${t.usd}/month`}`).join(", ")}. Institutional pilots include complimentary first-year access under an MOU.
+Pricing: ${facts.pricing.tiers.filter((t) => !t.hidden).map((t) => `${t.name} ${t.inr === null ? "custom" : t.inr === 0 ? "free" : t.inrMax ? `₹${t.inr / 100000}–${t.inrMax / 100000} lakh/year` : `₹${t.inr}/month`}`).join(", ")}. Institutional pilots include complimentary first-year access under an MOU.
 
 Application: ${APP_URL}
 
